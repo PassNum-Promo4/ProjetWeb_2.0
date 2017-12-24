@@ -126,7 +126,7 @@ function addPoints(points){
   currentScoreDOMelement.innerHTML = score.toString();
 }
 
-//Load a mini game randomly :
+//Load content randomly :
 function loadComp(source, target, callback) {
   let xhttp = new XMLHttpRequest();
   xhttp.open("GET", source, true);
