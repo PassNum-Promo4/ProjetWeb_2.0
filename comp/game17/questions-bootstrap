@@ -1,0 +1,86 @@
+Question 1:
+Quelle class permet de cacher un élément uniquement sur un écran dont la largeur est inférieure à 768px ?
+    hidden-xs
+    visible-md
+    hidd
+    hidden
+
+
+Question 2:
+Quel attribut sert à ajouter le contenu du titre d’une popover ?
+    title
+    data-contenu
+    data-title
+    title-data
+
+
+Question 3:
+Quelle class doit-être ajoutée pour colorier un rang sur deux dans un tableau ?
+
+    table-striped
+    table-bordered
+    table-hover
+    table-color
+
+
+
+Question 4:
+Quelle class permet de déclarer un système de colonnes ?
+
+    container
+    row
+    nav-bar
+    container-row
+
+Question 5:
+Quelle class permet de positionner un élément sur 8 colonnes sur un écran dont la largeur est de 650px ?
+
+    col-sm-8
+    col-xs-8
+    col-xs-offset-8
+    col-8
+    
+
+Question 6:
+Quelle class permet de coloriser un bouton en bleu ciel ?
+
+    btn-info
+    btn-succes
+    btn-default
+    btn-blue
+
+Question 7:
+Quelle balise permet de mettre un texte en surbrillance ?
+
+    mark
+    small
+    ins
+    sml
+
+Question 8:
+Quel préfixe doit-on utiliser pour gérer l’affichage sur un écran de 998px de large ?
+
+    xs
+    sm
+    md
+    lg
+
+Question 9:
+Qu’est-ce que Bootstrap ?
+
+     Un framework JavaScript.
+     Un framework CSS.
+     Un framework HTML.
+     Un framework JavaScript, CSS et HTML. 
+    
+Question 10:
+Lequel des styles de bootstrap suivants peut être utilisé pour créer une barre de progression par défaut?
+
+    .progress, .progress-bar
+    .progress-bar
+    .nav-progrss
+    .bar-prog
+    
+  
+    
+
