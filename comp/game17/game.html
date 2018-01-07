@@ -1,7 +1,58 @@
 <!--
-  Author :
+  Author : Kirill Petrov 
 -->
 
 <div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
+    <div class="bg-light">
+        <div class="title text-center bg-secondary w-100 p-3" style="font-size: 38px;font-weight: bold;padding-top: 2px;color: black;">
+            <p>Quiz sur la connaissance de Bootstrap</p>
+        </div>
+
+        <style type="text/css">
+            .wrapper {
+                width: 600px;
+                height: 130px;
+                margin: 0 auto;
+                display: none;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+            }
+
+        </style>
+
+        <script type="text/javascript" src="js.js"></script>
+
+
+
+
+
+        <div class="w-100 p-3">
+
+            <div id="area" class="wrapper">
+
+                <center>
+
+                    <p style="font-size: 25px;font-weight: bold;padding-top: 2px;color: black;" id="question"></p>
+
+                    <button type="button" class="btn btn-primary" onclick="check(0)" class="myButton" id="option1"></button>
+
+                    <button type="button" class="btn btn-primary" onclick="check(1)" class="myButton" id="option2"></button>
+
+                    <button type="button" class="btn btn-primary" onclick="check(2)" class="myButton" id="option3"></button>
+
+                    <button type="button" class="btn btn-primary" onclick="check(3)" class="myButton" id="option4"></button>
+
+                </center>
+            </div>
+
+
+            <br>
+            <center>
+                <button type="button" class="btn btn-warning" id="start" class="myButton" onclick="check(10)">Commencer le test</button>
+
+            </center>
+        </div>
+
+    </div>
 </div>
