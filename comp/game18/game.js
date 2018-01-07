@@ -115,9 +115,9 @@ function g18gameOver(){
     var g18container=document.querySelector("#g18container");
     document.querySelector('.g18Qzone').innerHTML="";//je retire la question et les reponses
     var g18result=document.querySelector('.g18result');
-    document.querySelector('.g18Rfield').innerHTML="";
-    document.querySelector('#g18form__submit').disabled=false;
+    document.querySelector('.g18Rfield').innerHTML="";  
     document.querySelector('#g18form__submit').value="Next Game";
+    document.querySelector('#g18form__submit').disabled=false;
     document.querySelector('#g18form__submit').addEventListener("click",loadNextMiniGame);
     g18result.style.display = "block";
     g18container.appendChild(g18result);
