@@ -1,7 +1,34 @@
-<!--
-  Author :
--->
-
 <div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
+  <!--Author : Thibault ROUSSET-->
+
+  <div id="g18container">
+    <form class="g18form" action="index.html" method="post">
+      <fieldset>
+        <legend>QUIZZ COMMANDES LINUX</legend>
+        <input id="g18form__submit" type="button" value="Demarrer" onclick="g18randomQ(); g18Timer(); return false">
+
+        <div class="g18TimerContainer">
+          <input id="g18Time" type="button"  value="temps : 10">
+        </div>
+        <div class="g18scoreContainer">
+          <input id="g18score" type="button"  value="score : 0">
+        </div>
+
+      </fieldset>
+    </form>
+    <div class="g18Qzone">
+
+    </div>
+    <div class="g18Rfield">
+
+    </div>
+    <div class="g18result">
+
+    </div>
+  </div>
+  <script type="text/javascript" src="game.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
 </div>
