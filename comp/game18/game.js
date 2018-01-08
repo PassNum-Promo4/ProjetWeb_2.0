@@ -1,6 +1,6 @@
 var g18container = document.querySelector('#g18container');
 var g18q1 =[
-  "Quelle commande Lunix permet de compter le nombre total de lignes, mots et caractères d'un fichier?",//question en [0]
+  "Quelle commande Linux permet de compter le nombre total de lignes, mots et caractères d'un fichier?",//question en [0]
   "wc",// bonne réponse en [1]
   "wcount",//mauvaises répons
   "countw",//mauvaises répons
@@ -16,7 +16,7 @@ var g18q2 =[
 ];
 
 var g18q3 =[
-  "Quelle commande Lunix permet de savoir où je me trouve dans l'arborescence de mon ordinateur?",
+  "Quelle commande Linux permet de savoir où je me trouve dans l'arborescence de mon ordinateur?",
   "Pwd",
   "Find",
   "Route",
@@ -24,7 +24,7 @@ var g18q3 =[
 ];
 
 var g18q4 =[
-  "Quelle commande Lunix permet de connaitre le type d'un fichier?",
+  "Quelle commande Linux permet de connaitre le type d'un fichier?",
   "File",
   "Tell",
   "Ln",
@@ -115,7 +115,8 @@ function g18gameOver(){
     var g18container=document.querySelector("#g18container");
     document.querySelector('.g18Qzone').innerHTML="";//je retire la question et les reponses
     var g18result=document.querySelector('.g18result');
-    document.querySelector('.g18Rfield').innerHTML="";  
+    document.querySelector('.g18Rfield').innerHTML="";
+
     document.querySelector('#g18form__submit').value="Next Game";
     document.querySelector('#g18form__submit').disabled=false;
     document.querySelector('#g18form__submit').addEventListener("click",loadNextMiniGame);
