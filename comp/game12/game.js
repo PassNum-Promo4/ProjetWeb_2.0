@@ -180,6 +180,7 @@ function g12trueAnswer() {
   g12A1div.classList.add('bg-sucess');
   document.querySelector('#g12Result').appendChild(g12CurrentQnA);
   g12Score++;
+  addPoints(1);
 }
 
 function g12revealQnA() {
@@ -216,7 +217,6 @@ function g12nextQ() {
   } else {
     g12resetGame();
     clearTimeout(g12QnATimer);
-    addPoints(g12Score);
     console.log('End Of Game')
     loadNextMiniGame();
   }
