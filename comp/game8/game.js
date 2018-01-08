@@ -11,58 +11,58 @@ var g8q1 = [
   "INSERT DATABASE ma_base"];
 var g8q2 = [
   "Comment crée une table ?",
-  "CREATE TABLE nom_de_la_table (colonne1 type_donnees, colonne2 type_donnees)",
-  "CREATE TABLE nom_de_la_table",
+  "CREATE TABLE ... (colonne1 type_donnees, colonne2 type_donnees)",
+  "CREATE TABLE ...",
   "CREATE TABLE",
-  "LOAD TABLE nom_de_la_table (colonne1 type_donnees, colonne2 type_donnees)"];
+  "LOAD TABLE ... (colonne1 type_donnees, colonne2 type_donnees)"];
 var g8q3 = [
   "Comment ajouter une colonne dans une table ?",
-  "ALTER TABLE nom_table ADD nom_colonne type_donnees",
-  "ALTER TABLE nom_table INSERT nom_colonne type_donnees",
-  "ENTER TABLE nom_table ADD nom_colonne type_donnees",
-  "ALTER TABLE nom_table CREATE nom_colonne type_donnees"];
+  "ADD",
+  "INSERT",
+  "ENTER",
+  "CREATE"];
 var g8q4 = [
   "Comment lire les données d'une table ?",
-  "SELECT nom_du_champ FROM nom_du_tableau",
-  "LOAD nom_du_champ FROM nom_du_tableau",
-  "LOAD nom_du_champ IN nom_du_tableau",
-  "SELECT nom_du_champ IN nom_du_tableau"];
+  "SELECT ... FROM ...",
+  "LOAD ... FROM ...",
+  "LOAD ... IN ...",
+  "SELECT ... IN ..."];
 var g8q5 = [
-  "Comment lire les données d'une table avec une seul condition ?",
-  "SELECT nom_colonnes FROM nom_table WHERE condition",
-  "SELECT nom_colonnes FROM nom_table",
-  "SELECT nom_colonnes IN nom_table WHERE condition",
-  "LOAD nom_colonnes FROM nom_table WHERE condition"];
+  "Quel mot clé utiliser pour lire les données d'une table avec une seul condition ?",
+  "WHERE con",
+  "WHEN con",
+  "WHEN con1 AND con2",
+  "WHERE con1 OR con2"];
 var g8q6 = [
-  "Comment lire les données d'une table avec plusieurs condition ?",
-  "SELECT nom_colonnes FROM nom_table WHERE condition1 AND condition2",
-  "LOAD nom_colonnes FROM nom_table WHERE condition1 AND condition2",
-  "LOAD nom_colonnes IN nom_table WHERE condition1 OR condition2",
-  "ALTER nom_colonnes IN nom_table WHERE condition1 OR condition2"];
+  "Quel mot clé utiliser pour lire les données d'une table avec plusieurs condition ?",
+  "WHERE con1 AND con2",
+  "WHEN con1 AND con2",
+  "WHEN con1 OR con2",
+  "WHERE con1 AND OR con2"];
 var g8q7 = [
-  "Comment unir les résultats de 2 tableaux sans afficher les doublons ?",
-  "SELECT * FROM table1 UNION SELECT * FROM table2",
-  "SELECT table1 UNION SELECT table2",
-  "SELECT * FROM table1 AND SELECT * FROM table2",
-  "SELECT * FROM table1 UNION ALL SELECT * FROM table2"];
+  "Quel mot clé utiliser pour unir les résultats de 2 tableaux sans afficher les doublons ?",
+  "UNION",
+  "MERGE",
+  "U *",
+  "MERGE *"];
 var g8q8 = [
-  "Comment unir les résultats de 2 tableaux même avec les doublons ?",
-  "SELECT * FROM table1 UNION ALL SELECT * FROM table2",
-  "SELECT TABLE table1 UNION ALL SELECT TABLE table2",
-  "SELECT * FROM table1 UNION SELECT * FROM table2",
-  "SELECT ALL FROM table1 UNION SELECT ALL FROM table2"];
+  "Quel mot clé utiliser pour unir les résultats de 2 tableaux même avec les doublons ?",
+  "UNION ALL",
+  "UNION *",
+  "SELECT *",
+  "UNION"];
 var g8q9 = [
-  "Comment insérer des donéesss dans une table ?",
-  "INSERT INTO table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "ADD INTO table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "INSERT IN table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "ADD IN table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')"];
+  "Quel mot clé utiliser pour insérer des donéesss dans une table ?",
+  "INSERT INTO",
+  "ADD INTO",
+  "INSERT IN",
+  "ADD IN"];
 var g8q10 = [
-  "Comment obtenir l'intersection des résultats de 2 tables ?",
-  "SELECT * FROM table1 INTERSECT SELECT * FROM table2",
-  "LOAD * FROM table1 INTERSECT LOAD * FROM table2",
-  "ALTER ALL FROM table1 INTERSECT ALTER ALL FROM table2",
-  "SELECT ALL FROM table1 INTERSECT SELECT ALL FROM table2"];
+  "Quel mot clé utiliser pour obtenir l'intersection des résultats de 2 tables ?",
+  "INTERSECT",
+  "INTER",
+  "INTERSECT ALL",
+  "INTER ALL"];
 var g8QA = [g8q1, g8q2, g8q3, g8q4, g8q5, g8q6, g8q7, g8q8, g8q9, g8q10]; // All questions and answers array holder..
 var g8QARandIndex;
 var g8ResultGoodOpinions = ["Very Good !","You're the BOSS !","We're Proud Of You ! ^_^"];
