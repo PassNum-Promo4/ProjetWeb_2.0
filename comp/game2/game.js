@@ -172,7 +172,6 @@ function g2trueAnswer() {
   document.querySelector('#g2Result').appendChild(g2CurrentQ);
   g2nextQ();
   g2score();
-  addPoints(g2rlt);
 }
 
 function g2nextQ() {
