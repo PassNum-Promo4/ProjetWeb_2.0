@@ -46,8 +46,6 @@ function g2UpdateTimer() {
   } else if (g2roundDone == 10) {
     g2TimeLeft = 0;
     g2QTimeLeft = 0;
-
-    alert('END OF THE GAME score ' + g2rlt + '/10');
     addPoints(g2rlt);
     loadNextMiniGame();
     console.log('Stop')
@@ -174,7 +172,7 @@ function g2trueAnswer() {
   document.querySelector('#g2Result').appendChild(g2CurrentQ);
   g2nextQ();
   g2score();
-  addPoints(g2rlt + 1);
+  addPoints(g2rlt);
 }
 
 function g2nextQ() {
@@ -189,8 +187,6 @@ function g2nextQ() {
   } else {
     g2QTimeLeft = 0;
     g2TimeLeft = 0;
-
-    alert('END OF THE GAME score ' + g2rlt + '/10')
     window.clearTimeout(g2QTimer);
     window.clearTimeout(g2Timer);
     console.log('End Of Game')
