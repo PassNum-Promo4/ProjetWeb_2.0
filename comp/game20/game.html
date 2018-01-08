@@ -1,7 +1,30 @@
-<!--
-  Author :
--->
+<!DOCTYPE html>
+<!--author: Lionel SUVELOR-->
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
-</div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>JS QUIZ g20</title>
+  </head>
+  <body>
+      <header>
+            <div class="jumbotron font-weight-bold" id="jumbo">         <!-- PLACE THIS HEADER VIA JS IN THE FUTURE-->
+            <h1 class = "text-bold text-center text-light"> JS QUIZ</h1>
+            </div>
+      </header>
+
+      <div class="container-fluid "> <!-- remove mt-5 if header is placed-->
+        <div class="row">  <!-- below classes can be set in JS file but as I've done some CSS modifications I let 'em here to not overload the JS part-->
+            <span id="g20scoreFinal" class="col-6 d-flex justify-content-center row text-center p-2 alert-info mx-auto font-weight-bold text-dark "></span> <!--progressive score display -->
+            <span id="g20time" class="col-6 d-flex justify-content-center row text-center p-2 alert-info mx-auto font-weight-bold text-dark " ></span> <!-- timer for each question-->
+        </div><br />
+            <input id="" class="btn-block btn-default col-3 col-s-3 col-xs-3 mx-auto m-2 font-weight-bold text-black active" type="button" value="START" onClick="g20startGame();">
+            <div class="g20Q">
+                <div id="Q20Q" class="col-12 d-flex justify-content-center m-3 mt-5 text-center text-light row font-weight-bold" ></div>
+                <div id="Q20A1-4" class="col-12 d-flex justify-content-center m-3 text-center text-light row"></div>
+            </div>
+      </div>
+          <script type="text/javascript" src="game.js"></script>
+  </body>
+</html>
