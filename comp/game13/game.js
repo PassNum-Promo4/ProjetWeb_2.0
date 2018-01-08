@@ -130,15 +130,6 @@ function g13getRandomQA(index) {
 
 }
 
-function addPoints(points) { // add score
-    g13score = g13score + 1;
-    points = g13score;
-    document.getElementById('g13score').value = " Score : " + g13score;
-
-    return points;
-}
-
-
 function g13BeginQ() { //for start the game
     g13index = 0;
     g13getRandomQA(g13index);
