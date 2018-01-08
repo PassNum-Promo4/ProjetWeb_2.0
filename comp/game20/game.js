@@ -22,7 +22,7 @@ var g20Q10 = ['Comment insérer un caractère spécial dans une chaine de caract
 
 
 //SETTING SOME DESIGN & CSS PROPERTIES
-var g20bg = document.body.style.backgroundColor = "black";
+var g20bgPG = document.getElementById("playground").style.backgroundColor = "black";
 var g20bgH = document.getElementById("jumbo").style.backgroundColor = "black";
 var g20h1JT = document.getElementById("jumbo").style.fontFamily = "monospace";
 var g20h1JT = document.getElementById("jumbo").style.fontSize = "3 rem";
