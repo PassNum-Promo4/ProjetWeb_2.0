@@ -1,11 +1,13 @@
 //author: Lionel SUVELOR
 
+// g20startGame();  iF START BUTTON IS REMOVED - A FIRST 9S BEGAN WITHOUT FIRST QUESTION - WATCHOUT
 
 /* 2 major problems: _ some random questions "come back" even if they were already answered (check the associated function & see randel function)
 _ start button does no want to be completly responsive after sm/xs breakpoint (maybe cuz btn-lg class)
 
 _ check the functions definition and use cuz bracket says some are called before been defined, but it still works
 _ correct the questions mouseover pointer as it  not fits its role (seems like text has to be entered)
+_ black bg doesn't "go" to the bottom of the page, see why
 */
 
 //QUIZ QUESTIONS
@@ -22,39 +24,35 @@ var g20Q10 = ['Comment insérer un caractère spécial dans une chaine de caract
 
 
 //SETTING SOME DESIGN & CSS PROPERTIES
-var g20bgH = document.getElementById("g20playground").style.backgroundColor = "black";
-var g20bgH = document.getElementById("jumbo").style.backgroundColor = "black";
-var g20h1JT = document.getElementById("jumbo").style.fontFamily = "monospace";
-var g20h1JT = document.getElementById("jumbo").style.fontSize = "3 rem";
+//extractin main playground and stylin it up
+var g20main = document.getElementById("g20playground");
+g20main.style.backgroundColor = "black";
+
+//extractin g20jumbotron and stylin it up  
+var g20jumbotron = document.getElementById("g20jumbo");
+g20jumbotron.style.backgroundColor = "black";
+g20jumbotron.style.font = "bolder 3rem monospace";
+
+//extractin g20timer and stylin it up  
+var g20timer = document.getElementById("g20time");
+g20timer.style.fontFamily = "monospace";
+g20timer.style.border = "5px solid black";
+
+//extractin g20scoreDisp and stylin it up  
+var g20scoreDisp = document.getElementById("g20scoreFinal");
+g20scoreFinal.style.fontFamily = "monospace";
+g20scoreFinal.style.border = "5px solid black";
+
+//extractin g20questionsArea & stylin it up
+var g20questionArea = document.getElementById("Q20Q");
+g20questionArea.style.font = "bold 1.5rem monospace";
+
+//extractin g20answerArea & stylin it up
+var g20answerArea = document.getElementById("Q20A1-4");
+g20answerArea.style.font = "300 1.2rem monospace";
+g20answerArea.style.color = "black";
 
 
-
-var g20fontFam1 = document.getElementById("g20time").style.fontFamily = "monospace";
-var g20fontFam3 = document.getElementById("g20scoreFinal").style.fontFamily = "monospace";
-var g20borderSize1 = document.getElementById("g20time").style.borderStyle = "solid";
-var g20borderBlack2 = document.getElementById("g20time").style.borderColor = "black";
-var g20borderWidth1 = document.getElementById("g20time").style.borderWidth = "5px";
-var g20borderSize2 = document.getElementById("g20scoreFinal").style.borderStyle = "solid";
-var g20borderBlack2 = document.getElementById("g20scoreFinal").style.borderColor = "black";
-var g20borderWidth2 = document.getElementById("g20scoreFinal").style.borderWidth = "5px";
-var g20fontFam2 = document.getElementById("Q20Q").style.fontFamily = "monospace";
-var g20fontSiz1 = document.getElementById("Q20Q").style.fontSize = "1.5rem";
-var g20fontSiz2 = document.getElementById("Q20A1-4").style.fontSize = "1.2rem";
-
-//header to "pass" in JS
-/*var g20header = document.createElement("header");
-      g20Title = document.createElement("h1");
-h1.textContent = "JS QUIZ";
-header.appendChild(h1);
-document.body.appendChild(header);*/
-
-//img1
-
-
-//title
-
-
-//img 2
 
 
 //GENERAL QUIZ
@@ -138,13 +136,31 @@ function g20getRandom() {
 }
 
 
+/*
+let g20max = Math.floor(g20QAll.length);
+let g20rand = Math.floor(Math.random() * g20max);
+let g20source = g20QAll[g20rand];
+//Remove this question :
+g20QAll.splice(g20rand, 1);
+
+
+  //based on Get a random mini-game URL :
+    let max = Math.floor(miniGamesURLArray.length);
+    let rand = Math.floor(Math.random() * max);
+    let source = miniGamesURLArray[rand];
+    //Remove this mini-game :
+    miniGamesURLArray.splice(rand, 1);*/ 
+    // not works !
+
+
+
 
 /*
 function randel (g20QAll) {    // GET RANDOM QUESTION AND DELETE IT AFTER ANSWERED FUNCTION
-    var r = Math.round (Math.random() * (g20QAll.length - 1));
-    var rec = g20QAll[r]; // VARIABLE STORIN THE QUESTION VALUE
-    g20QAll.splice (r, 1); // FUNCTION SPLICE WITHDRAWS THE QUESTION FROM THE QUESTIONS ARRAY
-    return rec;
+    var g20r = Math.round (Math.random() * (g20QAll.length - 1));
+    var g20rec = g20QAll[g20r]; // VARIABLE STORIN THE QUESTION VALUE
+    g20QAll.splice (g20r, 1); // WITHDRAWS THE QUESTION FROM THE QUESTIONS ARRAY
+    return g20rec;
 }
 
 Tableau = new Array();
@@ -156,7 +172,9 @@ for (var i=0; i<10; i++)
 while (Tableau.length)
 {
     trace (randel(Tableau));
-} */
+} 
+*/
+//experimenting functions to get the problem solved !
 
 
 //"PLAYGROUND" QUESTION CREATION
@@ -168,22 +186,22 @@ function g20createArea() {
 //PLAYGROUND ANSWERS CREATION
     g20A1div = document.createElement('div');
     g20A1div.id = 'Q20A1';
-    g20A1div.classList.add('bg-light', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control');
-    g20A1div.textContent = g20Q[1];
+    g20A1div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control','font-weight-bold');
+    g20A1div.textContent = g20Q[1]; 
 
     g20A2div = document.createElement('div');
     g20A2div.id = 'Q20A2';
-    g20A2div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control');
+    g20A2div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control','font-weight-bold');
     g20A2div.textContent = g20Q[2];
 
     g20A3div = document.createElement('div');
     g20A3div.id = 'Q20A3';
-    g20A3div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control')
+    g20A3div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control','font-weight-bold')
     g20A3div.textContent = g20Q[3];
 
     g20A4div = document.createElement('div');
     g20A4div.id = 'Q20A4';
-    g20A4div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control')
+    g20A4div.classList.add('bg-muted', 'border', 'border-secondary', 'rounded', 'm-1', 'p-3', 'col-6', 'form-control','font-weight-bold')
     g20A4div.textContent = g20Q[4];
 
   g20pushQ();
@@ -219,7 +237,7 @@ function g20pushQ() {
     g20ForClick();
 }
 
-function g20ForClick() {
+function g20ForClick() {        //GIVES INFORMATION ABOUT THE PICKED ANSWER => RIGHT OR WRONG
     console.log('function : g20ForClick()');
     document.querySelector('#Q20A1').addEventListener('click', g20trueAnswer);
     document.querySelector('#Q20A2').addEventListener('click', g20falseAnswer);
