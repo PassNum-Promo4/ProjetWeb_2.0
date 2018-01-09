@@ -108,7 +108,7 @@ function g19gameOver(){
 function g19points(){
   g19score= g19score + 1;     //j'incremente le score
   document.querySelector('#g19score').value="score : "+g19score; //j'affiche le score
-  addPoints(1);
+  addPoints(g19score);
 }
 
 
@@ -137,9 +137,10 @@ function g19randomQuestion(){
 
       if (g19i === 0) {     //je test si l'indice et lui affecte une classe true pour l'indice 0 sinon false
       g19butrep.id="g19true";
-      g19butrep.addEventListener('click',g19points); // appel de la fonction score a chaque click sur la bonne reponse
+      g19butrep.addEventListener('click',g19points);
+      g19butrep.classList.add("button","btn","btn-white","m-1"); // appel de la fonction score a chaque click sur la bonne reponse
     } else {
-      g19butrep.className="g19false";
+      g19butrep.classList.add("button","btn","btn-white","g19false","m-1");
     }
     g19tabRep.push(g19butrep);   //je reinjecte mon button dans mon tableau de REP
     g19butrep.addEventListener('click',g19randomQuestion); // appel de la fonction score a chaque click sur un button
