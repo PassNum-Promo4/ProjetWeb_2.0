@@ -51,7 +51,7 @@ function loadNextMiniGame(){
     miniGameCounterDOMelement.innerHTML = miniGameCounter.toString();
     miniGamesGitHubAccount.innerHTML = gameAccount[gameName];
     miniGamesGitHubAccount.setAttribute("href",gitHubAccount);
-    //miniGamesGitHubAccount.innerHTML
+    
   } else {
     //Show result when game is over :
     gameOver();
