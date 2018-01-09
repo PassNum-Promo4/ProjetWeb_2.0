@@ -1,7 +1,24 @@
 <!--
-  Author :
+  Author : Alex Vieira
 -->
+<!doctype html>
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<div class="p-5">
+  <div>
+    <div>
+      <div id="g23question"></div>
+      <div id="g23options"> </div>
+    </div>
+    <span id="g23GameTimer"></span><br>
+    <span id="g23QnATimer"></span>
+    <input id="btn" class="btn btn-primary col-12" type="button" value="Start" onClick="g23startGame();"> <br>
+    <span id="g23Result"> Score : </span>
+  </div>
 </div>
+<!-- lien JS -->
+<script type="text/javascript" src="game.js"></script>
