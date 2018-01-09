@@ -10,7 +10,8 @@ let miniGameCounter;
 let miniGameCounterDOMelement;
 let miniGamesURLArray;
 
-let miniGamesGitHubAccount;
+let miniGamesGitHubAccountDOMelement;
+let miniGamesTotalDOMelement;
 
 document.addEventListener("DOMContentLoaded", function(event) {
   //Store DOM elements :
@@ -49,8 +50,9 @@ function loadNextMiniGame(){
     //Update HUD :
     miniGameCounter ++;
     miniGameCounterDOMelement.innerHTML = miniGameCounter.toString();
-    miniGamesGitHubAccount.innerHTML = gameAccount[gameName];
-    miniGamesGitHubAccount.setAttribute("href",gitHubAccount);
+    miniGamesGitHubAccountDOMelement.innerHTML = gameAccount[gameName];
+    miniGamesGitHubAccountDOMelement.setAttribute("href",gitHubAccount);
+    miniGamesTotalDOMelement.innerHTML = "/ "+ Object.keys(gameAccount).length;
     
   } else {
     //Show result when game is over :
@@ -80,7 +82,8 @@ function startNewGame(){
     //Store DOM elements :
     currentScoreDOMelement = document.getElementById('currentScore');
     miniGameCounterDOMelement = document.getElementById('miniGameCounter');
-    miniGamesGitHubAccount = document.getElementById('miniGameGitHubAccount');
+    miniGamesGitHubAccountDOMelement = document.getElementById('miniGameGitHubAccount');
+    miniGamesTotalDOMelement = document.getElementById('miniGamesTotal');
     //Update score display :
     currentScoreDOMelement.innerHTML = score.toString();
     //Load randomly a minigame :
