@@ -180,6 +180,7 @@
   function g7falseAnswer() {
     document.querySelector('#g7A1').classList.add('btn','btn-success','rounded','m-1','p-3');
     window.setTimeout('g7nextQuest()',1000);
+    addPoints(1);
 
   }
 
