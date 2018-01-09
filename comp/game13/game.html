@@ -1,31 +1,39 @@
 <!--
   Author : Amanda Medeiros
 -->
-    <div>
+<div>
 
-        <div class="container">
-            <div class="row">
-                <div class="mx-auto">
-                    <input type="button" value="Commencer le jeu" onclick="g13BeginQ()">
-                </div>
-                <div id="question" class="col-12 text-center m-3">
-                </div>
-                <div id="answer" class="col-12 text-center m-3">
-
-                </div>
-                <div class="mx-auto">
-                    <input type="button" value="Question suivante" onclick="g13NextQ()">
-                </div>
-                <div class="mx-auto">
-                    <input id="g13score" type="button" value="Score">
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript" src="game.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-            crossorigin="anonymous"></script>
+  <div class="container p-5">
+    <div class="row">
+      <div id="startgame" class="mx-auto pb-4">
+        <input type="button" value="GO !" onclick="g13startGame()">
+      </div>
     </div>
+    <div id="question" class="col-12 text-center">
+      <h2></h2>
+    </div>
+
+    <div class="row">
+      <div id="a1" class="text-center col-12 border border-light rounded m-2 p-3">
+      </div>
+      <div id="a2" class="text-center col-12 border border-light rounded m-2 p-3">
+      </div>
+      <div id="a3" class="text-center col-12 border border-light rounded m-2 p-3">
+      </div>
+      <div id="a4" class="text-center col-12 border border-light rounded m-2 p-3">
+      </div>
+    </div>
+    <div class="card">
+      <span id="score" class="card-body text-center"></span>
+    </div>
+    <div class="card">
+      <span id="timer" class="card-body text-center"></span>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <input type="button" value="Next Game" onclick="loadNextMiniGame">
+        </div>
+      </div>
+    </div>
+</div>
