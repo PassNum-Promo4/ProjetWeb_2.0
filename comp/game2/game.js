@@ -16,7 +16,6 @@ var g2AllQ = new Array(g2Q1, g2Q2, g2Q3, g2Q4, g2Q5, g2Q6, g2Q7, g2Q8, g2Q9, g2Q
 var g2Q = '';
 var g2doNotUseA = new Array('')
 var g2doNotUseQ = new Array('')
-var g2Q1div = '';
 var g2A1div = '';
 var g2A2div = '';
 var g2A3div = '';
@@ -28,6 +27,7 @@ var g2QTimer;
 var g2QTimeLeft = 9;
 var g2rlt = 0;
 var g2CurrentQ;
+
 
 g2startGame()
 
@@ -46,8 +46,8 @@ function g2UpdateTimer() {
   } else if (g2roundDone == 10) {
     g2TimeLeft = 0;
     g2QTimeLeft = 0;
-    addPoints(g2rlt);
-    loadNextMiniGame();
+
+
     console.log('Stop')
 
   } else {
@@ -64,7 +64,7 @@ function g2QTimerdown() { //cela et la fonction pour le timer par questions
 function g2UpdateQTimer() {
   document.querySelector('#g2QTimer').textContent = 'Temps Manche : ' + g2QTimeLeft;
   if (g2QTimeLeft <= 0) {
-    g2CurrentQ.classList.add('p-1', 'border', 'rounded', 'bg-warning');
+    g2CurrentQ.classList.add('text-warning');
     document.querySelector('#g2Result').appendChild(g2CurrentQ);
     g2nextQ();
   } else {
@@ -105,22 +105,22 @@ function g2createArea() { //Creation des div pour les questions reponces
 
   g2A1div = document.createElement('div');
   g2A1div.id = 'g2A1';
-  g2A1div.classList.add('col-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3');
+  g2A1div.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3', 'bg-secondary');
   g2A1div.textContent = g2Q[1];
 
   g2A2div = document.createElement('div');
   g2A2div.id = 'g2A2';
-  g2A2div.classList.add('col-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3');
+  g2A2div.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3', 'bg-secondary');
   g2A2div.textContent = g2Q[2];
 
   g2A3div = document.createElement('div');
   g2A3div.id = 'g2A3';
-  g2A3div.classList.add('col-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3')
+  g2A3div.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3', 'bg-secondary')
   g2A3div.textContent = g2Q[3];
 
   g2A4div = document.createElement('div');
   g2A4div.id = 'g2A4';
-  g2A4div.classList.add('col-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3')
+  g2A4div.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'border', 'border-success', 'rounded', 'p-3', 'm-3', 'bg-secondary')
   g2A4div.textContent = g2Q[4];
 
   g2pushQ();
@@ -162,20 +162,21 @@ function g2ForClick() {
 }
 
 function g2falseAnswer() {
-  g2CurrentQ.classList.add('p-1', 'border', 'rounded', 'bg-danger');
+  g2CurrentQ.classList.add('text-danger');
   document.querySelector('#g2Result').appendChild(g2CurrentQ);
   g2nextQ();
 }
 
 function g2trueAnswer() {
-  g2CurrentQ.classList.add('p-1', 'border', 'rounded', 'bg-success');
+  g2CurrentQ.classList.add('text-success');
   document.querySelector('#g2Result').appendChild(g2CurrentQ);
   g2nextQ();
+  addPoints(1);
   g2score();
 }
 
 function g2nextQ() {
-  if (g2roundDone != 10) {
+  if (g2roundDone != 9) {
     g2roundDone++;
     g2resetGame();
     g2getRandom();
@@ -189,12 +190,23 @@ function g2nextQ() {
     window.clearTimeout(g2QTimer);
     window.clearTimeout(g2Timer);
     console.log('End Of Game')
-    loadNextMiniGame();
+    g2resetGame();
+    g2nextG()
+
   }
 }
 
 function g2score() {
   g2rlt = g2rlt + 1;
   document.querySelector('#g2scoreFinal').textContent = 'score ' + g2rlt + '/10';
-
 }
+
+function g2nextG() {
+  document.querySelector('#g2nextGame').textContent = 'Next Game';
+  document.querySelector('#g2nextGame').addEventListener('click', g2nGame);
+}
+
+function g2nGame() {
+  loadNextMiniGame();
+}
+
