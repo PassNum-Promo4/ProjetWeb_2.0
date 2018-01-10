@@ -1,18 +1,20 @@
 <!--
 Author : Florian Sanchez
 -->
-<div class="g19container">
-  <fieldset>
+<div class="g19container card m-5 col-6 mx-auto bg-light">
+  <fieldset class="m-3">
     <form class="g19_form">
-      <input id="g19button_start" type="button" value="Start" onclick="g19randomQuestion(); g19timer()" >
-      <input id="g19time" type="button" value="temps : 10">
-      <input id="g19score" type="button" value="score : 0">
-
-    </form>
-    <div class="g19question">
+    <div class="container">
+      <input class="btn btn-primary" id="g19button_start" type="button" value="Start" onclick="g19randomQuestion(); g19timer()" >
+      <input class="col-3 btn btn-warning" id="g19time" type="button" value="temps : 10">
+      <input class="btn btn-info" id="g19score" type="button" value="score : 0">
     </div>
-
-    <div class="g19reponses">
+    </form>
+    <div class="container">
+      <div class="g19question btn btn-secondary m-3">
+      </div>
+      <div class="g19reponses">
+      </div>
     </div>
   </fieldset>
 
