@@ -16,16 +16,19 @@ var g12AllQnA = new Array(g12QnA1,g12QnA2,g12QnA3,g12QnA4,g12QnA5,g12QnA6,g12QnA
 var g12QnA = '';
 var g12doNotUseA = new Array('')
 var g12doNotUseQnA = new Array('')
-var g12Q1div = '';
-var g12A1div = '';
-var g12A2div = '';
-var g12A3div = '';
-var g12A4div = '';
 var g12roundDone = 0;
 var g12QnATimer;
 var g12QnATimeLeft = 9;
 var g12CurrentQnA;
 var g12Score = 0;
+var g12AnswerKeeper = new Array('');
+var g12QuestionKeeper = new Array('');
+var g12A1div;
+var g12A2div;
+var g12A3div;
+var g12A4div;
+
+
 
 g12startGame();
 
@@ -80,6 +83,9 @@ function g12UpdateQnATimer() { //Testing if countodown is done and pushing the t
   if (g12QnATimeLeft <= 0) { //If Countdown came to 0
     g12CurrentQnA.classList.add('m-1','p-1','border','border-warning','rounded','bg-warning','text-light');
     document.querySelector('#g12Result').appendChild(g12CurrentQnA);
+    g12AnswerKeeper[g12roundDone] = document.createElement('div');
+    g12AnswerKeeper[g12roundDone].textContent = g12A1div.textContent;
+    g12AnswerKeeper[g12roundDone].classList.add('btn','btn-lg','btn-primary','btn-block','border-warning','bg-warning');
     g12nextQ();
   } else { //Keep substracting
     g12QnATimeLeft--;
@@ -109,31 +115,27 @@ function g12getRandomQnA() { //Pick a random QnA in the QnA tab
 
 function g12createArea() { //Creating the div for QnA positionning
 
-  g12A1div = document.createElement('div');
-  g12A1div.id = 'g12A1';
-  g12A1div.classList.add('text-center','text-light','bg-primary','border','border-primary','rounded','m-1','p-3');
+  g12A1div = document.createElement('button');
+  g12A1div.classList.add('btn','btn-lg','btn-primary','btn-block');
   g12A1div.textContent = g12QnA[1];
 
-  g12A2div = document.createElement('div');
-  g12A2div.id = 'g12A2';
-  g12A2div.classList.add('text-center','text-light','bg-primary','border','border-primary','rounded','m-1','p-3');
+  g12A2div = document.createElement('button');
+  g12A2div.classList.add('btn','btn-lg','btn-primary','btn-block');
   g12A2div.textContent = g12QnA[2];
 
-  g12A3div = document.createElement('div');
-  g12A3div.id = 'g12A3';
-  g12A3div.classList.add('text-center','text-light','bg-primary','border','border-primary','rounded','m-1','p-3')
+  g12A3div = document.createElement('button');
+  g12A3div.classList.add('btn','btn-lg','btn-primary','btn-block');
   g12A3div.textContent = g12QnA[3];
 
-  g12A4div = document.createElement('div');
-  g12A4div.id = 'g12A4';
-  g12A4div.classList.add('text-center','text-light','bg-primary','border','border-primary','rounded','m-1','p-3')
+  g12A4div = document.createElement('button');
+  g12A4div.classList.add('btn','btn-lg','btn-primary','btn-block');
   g12A4div.textContent = g12QnA[4];
 
   g12pushQnA();
 }
 
 function g12pushQnA() { //Pushing QnA in the area
-  document.querySelector('#g12Q').textContent = g12QnA[0];
+  g12Q.textContent = g12QnA[0];
 
   var j = 0;
   while (j < 4) {
@@ -161,50 +163,57 @@ function g12pushQnA() { //Pushing QnA in the area
 }
 
 function g12waitForClick() {
-  document.querySelector('#g12A1').addEventListener('click', g12trueAnswer);
-  document.querySelector('#g12A2').addEventListener('click', g12falseAnswer);
-  document.querySelector('#g12A3').addEventListener('click', g12falseAnswer);
-  document.querySelector('#g12A4').addEventListener('click', g12falseAnswer);
+  g12A1div.addEventListener('click', g12trueAnswer);
+  g12A2div.addEventListener('click', g12falseAnswer);
+  g12A3div.addEventListener('click', g12falseAnswer);
+  g12A4div.addEventListener('click', g12falseAnswer);
 }
 
-function g12falseAnswer() {
+function g12falseAnswer(div) {
   g12revealQnA()
   g12CurrentQnA.classList.add('m-1','p-1','border','border-danger','rounded','bg-danger','text-light');
-  g12A1div.classList.add('bg-sucess');
   document.querySelector('#g12Result').appendChild(g12CurrentQnA);
+  g12AnswerKeeper[g12roundDone] = document.createElement('div');
+  g12AnswerKeeper[g12roundDone].textContent = g12A1div.textContent;
+  g12AnswerKeeper[g12roundDone].classList.add('btn','btn-lg','btn-primary','btn-block','border-danger','bg-danger');
 }
 
 function g12trueAnswer() {
   g12revealQnA()
   g12CurrentQnA.classList.add('m-1','p-1','border','border-success','rounded','bg-success','text-light');
-  g12A1div.classList.add('bg-sucess');
   document.querySelector('#g12Result').appendChild(g12CurrentQnA);
+  g12AnswerKeeper[g12roundDone] = document.createElement('div');
+  g12AnswerKeeper[g12roundDone].textContent = g12A1div.textContent;
+  g12AnswerKeeper[g12roundDone].classList.add('btn','btn-lg','btn-primary','btn-block','border-success','bg-success');
   g12Score++;
   addPoints(1);
 }
 
 function g12revealQnA() {
   //Removing the event listener to prevent user clicking
-  document.querySelector('#g12A1').removeEventListener('click', g12trueAnswer);
-  document.querySelector('#g12A2').removeEventListener('click', g12falseAnswer);
-  document.querySelector('#g12A3').removeEventListener('click', g12falseAnswer);
-  document.querySelector('#g12A4').removeEventListener('click', g12falseAnswer);
+  g12A1div.removeEventListener('click', g12trueAnswer);
+  g12A2div.removeEventListener('click', g12falseAnswer);
+  g12A3div.removeEventListener('click', g12falseAnswer);
+  g12A4div.removeEventListener('click', g12falseAnswer);
   clearTimeout(g12QnATimer);//Stop the main timer
   //Revealing the soluce
-  document.querySelector('#g12A1').classList.add("border-dark","bg-success");
-  document.querySelector('#g12A2').classList.add("border-dark","bg-danger");
-  document.querySelector('#g12A3').classList.add("border-dark","bg-danger");
-  document.querySelector('#g12A4').classList.add("border-dark","bg-danger");
+  g12A1div.classList.add('border-success','bg-success');
+  g12A2div.classList.add('border-danger','bg-danger');
+  g12A3div.classList.add('border-danger','bg-danger');
+  g12A4div.classList.add('border-danger','bg-danger');
 
-  g12revealTimer = window.setTimeout('g12nextQ()',2000);//Wait 2 seconds and go to the next question
+  g12revealTimer = window.setTimeout('g12nextQ()',500);//Wait 2 seconds and go to the next question
 }
 
 function g12nextQ() {
   document.querySelector('#g12Score').textContent = g12Score;
-  document.querySelector('#g12A1').classList.remove("border-dark","bg-success");
-  document.querySelector('#g12A2').classList.remove("border-dark","bg-danger");
-  document.querySelector('#g12A3').classList.remove("border-dark","bg-danger");
-  document.querySelector('#g12A4').classList.remove("border-dark","bg-danger");
+  g12A1div.classList.remove('border-success','bg-success');
+  g12A2div.classList.remove('border-danger','bg-danger');
+  g12A3div.classList.remove('border-danger','bg-danger');
+  g12A4div.classList.remove('border-danger','bg-danger');
+
+  g12QuestionKeeper[g12roundDone] = document.createElement('span');
+  g12QuestionKeeper[g12roundDone].textContent = g12Q.textContent;
 
   if (g12roundDone != 9) {
     g12roundDone++;
@@ -215,9 +224,23 @@ function g12nextQ() {
     g12UpdateQnATimer();
     console.log(g12roundDone);
   } else {
-    g12resetGame();
     clearTimeout(g12QnATimer);
+    g12resetGame();
+    window.setTimeout('g12printGameHistory()',100)
     console.log('End Of Game')
-    loadNextMiniGame();
   }
+}
+
+function g12printGameHistory() {
+  var i = 0;
+  while (i < 10) {
+    document.querySelector('#g12container').appendChild(g12QuestionKeeper[i]);
+    document.querySelector('#g12container').appendChild(g12AnswerKeeper[i]);
+    i++;
+  }
+  var g12nextMiniGame = document.createElement('button');
+  g12nextMiniGame.textContent = 'Prochain Quizz';
+  g12nextMiniGame.classList.add('btn','btn-primary','mt-2','ml-5');
+  g12nextMiniGame.onclick = loadNextMiniGame;
+  document.querySelector('#g12container').appendChild(g12nextMiniGame);
 }
