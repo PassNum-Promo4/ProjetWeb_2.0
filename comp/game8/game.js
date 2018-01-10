@@ -3,6 +3,7 @@
 */
 
 var g8Container = document.querySelector('#g8container');
+g8Container.classList.add("d-flex","flex-column");
 var g8q1 = [
   "Comment crée une base de donées ?",  //for every array[0] is the qusetion
   "CREATE DATABASE ma_base",  //for every array[1] is the good answer
@@ -68,8 +69,11 @@ var g8QARandIndex;
 var g8ResultGoodOpinions = ["Very Good !","You're the BOSS !","We're Proud Of You ! ^_^"];
 var g8ResultMiddleOpinions = ["Not Bad !","You Can Do Better !","Good !"];
 var g8ResultLowOpinions = ["Try Better Next Time !","Not To Good","That's All ?"];
-var g8Questions = document.createElement("h2");
-g8Questions.classList.add("p3-4","pt-1");
+var g8Questions = document.createElement("div");
+g8Questions.id = "g8QuestionContainer";
+g8Questions.style.fontSize = "2rem";
+g8Questions.style.backgroundColor = "#ccccff";
+g8Questions.classList.add("pl-2","pr-2","pt-1","d-flex","justify-content-between","align-items-center");
 var g8Answers = [];
 var g8AnswersContainer = document.createElement("div");
 var g8Points = 0;
@@ -78,13 +82,59 @@ var g8TimerCount = 11;
 var g8Timer = 11;
 var g8QuestStart = false;
 var g8TimerContainer = document.createElement("div");
+g8TimerContainer.id = "g8TimerContainer";
+g8TimerContainer.classList.add("d-flex","justify-content-center","align-items-center");
+var g8TimerCountContainer = document.createElement("div");
+g8TimerCountContainer.id = "g8TimerCountContainer";
+g8TimerCountContainer.classList.add("position-relative","pt-3","pb-3","pl-1","pr-1");
+var g8TimerCountText = document.createElement("div");
+g8TimerCountText.id = "g8TimerCountText";
+g8TimerCountText.classList.add("pr-2");
+g8TimerCountText.style.fontSize = "1rem";
+g8TimerCountText.style.fontWeight = "bold";
+var g8TimerCountNr = document.createElement("div");
+g8TimerCountNr.id = "g8TimerCountNr";
+g8TimerCountNr.classList.add("position-relative");
+g8TimerCountNr.style.zIndex = "1";
+g8TimerCountNr.style.fontSize = "1.8rem";
+var g8TimerCountPBContainer = document.createElement("div");
+g8TimerCountPBContainer.id = "g8TimerCountPBContainer";
+g8TimerCountPBContainer.classList.add("w-100","h-100","position-absolute","border");
+g8TimerCountPBContainer.style.top = "0";
+g8TimerCountPBContainer.style.left = "0";
+var g8TimerCountPB = document.createElement("table");
+g8TimerCountPB.id = "g8TimerCountPB";
+g8TimerCountPB.classList.add("w-100","position-absolute");
+g8TimerCountPB.style.top = "0";
+g8TimerCountPB.style.left = "0";
+
 var g8Interval;
 var g8TimerUpdate;
+var g8progressBar;
+var g8scoreContainer;
+var g8progressBarContainer;
+var g8tempNr = -1;
 
 function g8Tm() {
   if (g8QuestStart) {
     g8Timer = g8Timer - 1;
-    g8TimerContainer.innerHTML = "Your Time : " + g8Timer.toString() + "s";
+    g8tempNr++;
+    g8TimerCountText.innerHTML = "Your Time :";
+    g8TimerCountNr.innerHTML = g8Timer.toString();
+    g8TimerCountPB.classList.remove("bg-success","bg-warning","bg-danger");
+    g8TimerCountPBContainer.classList.remove("border-success","border-warning","border-danger");
+    if (g8Timer > 5) {
+      g8TimerCountPB.classList.add("bg-success");
+      g8TimerCountPBContainer.classList.add("border-success");
+    } else if (g8Timer > 2) {
+      g8TimerCountPB.classList.add("bg-warning");
+      g8TimerCountPBContainer.classList.add("border-warning");
+    } else {
+      g8TimerCountPB.classList.add("bg-danger");
+      g8TimerCountPBContainer.classList.add("border-danger");
+    }
+    g8TimerCountPB.style.top = g8tempNr * 10+ "%";
+    g8TimerCountPB.style.height = g8Timer * 10+ "%";
     g8TimerUpdate = setTimeout(function () {
       g8Tm();
     }, 1000);
@@ -95,8 +145,11 @@ function g8RandOp(tab) {
   var i = Math.floor(Math.random() * tab.length);
   return tab[i];
 }
-
-g8Container.appendChild(g8TimerContainer);
+g8TimerContainer.appendChild(g8TimerCountText);
+g8TimerCountPBContainer.appendChild(g8TimerCountPB);
+g8TimerCountContainer.appendChild(g8TimerCountNr);
+g8TimerCountContainer.appendChild(g8TimerCountPBContainer);
+g8TimerContainer.appendChild(g8TimerCountContainer);
 g8Quest();
 g8Tm();
 function g8Quest() {
@@ -106,7 +159,7 @@ function g8Quest() {
     g8RemoveAllChildren(g8AnswersContainer);
     g8RemoveAllChildren(g8TimerContainer);
     var g8Result = document.createElement("div");
-    g8Result.classList.add("d-inline-block","border","p-2");
+    g8Result.classList.add("d-inline-block","border","m-auto","p-3");
     var g8ResultOpinion = document.createElement("h1");
     g8ResultOpinion.classList.add("text-center");
     var g8ResultScore = document.createElement("p");
@@ -141,6 +194,7 @@ function g8Quest() {
     g8Interval = setTimeout(function () {
       g8QA.splice(g8QARandIndex, 1);
       g8Timer = 11;
+      g8tempNr = -1;
       g8Quest();
     }, g8TimerCount * 1000);
   }
@@ -160,6 +214,7 @@ function g8AnswersFunc(tab) {
       g8Answers.id = "goodAnswer";
       g8Answers.classList.add("btn","btn-light","border","border-primary","m-2");
       g8Answers.innerHTML = tab[1];
+      g8Questions.appendChild(g8TimerContainer);
     } else {
       g8Answers = document.createElement("button");
       g8Answers.classList.add("badAnswers");
@@ -190,6 +245,12 @@ function g8AnswersFunc(tab) {
   }
 
   g8Container.appendChild(g8AnswersContainer);
+  g8progressBar = document.querySelector('#g8progressBar');
+  g8progressBar.classList.add("h-100","position-absolute");
+  g8progressBarContainer = document.querySelector('#g8progressBarContainer');
+  g8scoreContainer = document.querySelector('#g8scoreContainer');
+  g8scoreContainer.style.backgroundColor = "#ccccff";
+  g8scoreContainer.classList.add("position-relative");
 
   function g8GoodAnsFunc() {
     clearTimeout(g8Interval);
@@ -203,14 +264,30 @@ function g8AnswersFunc(tab) {
     document.getElementsByClassName("badAnswers")[1].disabled = true;
     document.getElementsByClassName("badAnswers")[2].disabled = true;
     setTimeout(function () {
+      g8progressBarContainer.classList.add("border","bg-dark","border-danger","w-100","h-100","position-absolute");
       clearTimeout(g8Interval);
       clearTimeout(g8TimerUpdate);
       g8Timer = 11;
+      g8tempNr = -1;
       g8QA.splice(g8QARandIndex, 1);
       g8PointsCounter++;
       g8Quest();
       g8Tm();
       addPoints(g8Points + 1);
+      g8progressBar.width = g8PointsCounter * 10+ "%";
+      if (g8PointsCounter > 5) {
+        g8progressBar.classList.add("bg-success");
+        g8progressBar.classList.remove("bg-warning");
+        g8progressBarContainer.classList.remove("border-danger","border-warning");
+        g8progressBarContainer.classList.add("border-success");
+      } else if (g8PointsCounter > 2) {
+        g8progressBar.classList.add("bg-warning");
+        g8progressBar.classList.remove("bg-danger");
+        g8progressBarContainer.classList.remove("border-danger");
+        g8progressBarContainer.classList.add("border-warning");
+      } else {
+        g8progressBar.classList.add("bg-danger");
+      }
     }, 2000);
   }
 
@@ -229,12 +306,12 @@ function g8AnswersFunc(tab) {
       clearTimeout(g8Interval);
       clearTimeout(g8TimerUpdate);
       g8Timer = 11;
+      g8tempNr = -1;
       g8QA.splice(g8QARandIndex, 1);
       g8Quest();
       g8Tm();
     }, 2000);
   }
-
   var g8GoodAnswerBtn = document.querySelector("#goodAnswer");
   g8GoodAnswerBtn.addEventListener('click', g8GoodAnsFunc);
   var n = 0;
