@@ -1,5 +1,5 @@
 /*
-  Baptiste :
+  Author : Baptiste Hovanisian
 */
 
 var g11counter = 10;
@@ -9,7 +9,7 @@ var g11party = 0;
 var g11correct = 0;
 var g11alQ = 0;
 var g11alTab = [];
-var q = document.getElementById('question');
+var g11q = document.getElementById('g11question');
 var g11rep = document.getElementsByName('choices');
 var g11tabQ1 = ["Qu'est ce que MySQL ?", "Un système de gestion de bases de données relationnelles", "Un anti-virus", "Un editeur de texte", "Un langage informatique"];
 var g11tabQ2 = ["Qu'est-ce que phpMyAdmin ?", "Une célèbre interface pour gérer une base de données MySQL sur un serveur PHP", "Un logiciel de gestion de droit administrateur", "Un célébre site pour apprendre le langage PHP", "Un outil pour vérifier si les sites sont bien responsives"];
@@ -24,10 +24,10 @@ var g11tabQ10 = ["Que permet de faire la clause WHERE ?", "Préciser des critèr
 var g11tabRecap = [g11tabQ1, g11tabQ2, g11tabQ3, g11tabQ4, g11tabQ5, g11tabQ6, g11tabQ7, g11tabQ8, g11tabQ9, g11tabQ10 ];
 
 
-document.getElementById("main").style.display = "none";
+document.getElementById("g11main").style.display = "none";
 
 function g11start() {
-  document.getElementById("main").style.display = "initial";
+  document.getElementById("g11main").style.display = "initial";
   intervalId = setInterval(g11bip, 1000);
   //setTimeout(g11action, g11counter * 1100);
   document.getElementById('startQuiz').style.display = "none";
@@ -39,7 +39,7 @@ function g11start() {
 
 function g11bip()
 {
-  document.getElementById("bip").innerHTML = g11counter + " secondes restantes";
+  document.getElementById("g11bip").innerHTML = g11counter + " secondes restantes";
   g11counter--;
   g11resetTimer();
 }
@@ -48,49 +48,49 @@ function g11bip()
 function g11action()
 {
   clearInterval(intervalId);
-  document.getElementById("bip").innerHTML = "GAME OVER!";
-  document.getElementById("main").style.display = "none";
+  document.getElementById("g11bip").innerHTML = "GAME OVER!";
+  document.getElementById("g11main").style.display = "none";
 
 }
 
 function g11getAlTab(tab) {
-  var resQ = "";
+  var g11resQ = "";
   g11alQ = Math.floor(Math.random() * tab.length);
-  resQ = tab[g11alQ];
+  g11resQ = tab[g11alQ];
   g11tabRecap.splice(g11alQ, 1);
-  q.innerHTML = "";
-  return resQ;
+  g11q.innerHTML = "";
+  return g11resQ;
 }
 
 
 function g11getRandomQA() {
   g11party++;
   g11alTab = g11getAlTab(g11tabRecap);
-  var alCh1 = Math.floor(Math.random() * 4);
-  var alCh2 = Math.floor(Math.random() * 4);
-  var alCh3 = Math.floor(Math.random() * 4);
-  var alCh4 = Math.floor(Math.random() * 4);
+  var g11alCh1 = Math.floor(Math.random() * 4);
+  var g11alCh2 = Math.floor(Math.random() * 4);
+  var g11alCh3 = Math.floor(Math.random() * 4);
+  var g11alCh4 = Math.floor(Math.random() * 4);
 
 
 
 
 
-  while (alCh1 == alCh2 || alCh1 == alCh3 || alCh1 == alCh4 || alCh2 == alCh3 || alCh2 == alCh4 || alCh3 == alCh4) {
+  while (g11alCh1 == g11alCh2 || g11alCh1 == g11alCh3 || g11alCh1 == g11alCh4 || g11alCh2 == g11alCh3 || g11alCh2 == g11alCh4 || g11alCh3 == g11alCh4) {
     var i = 0;
-    alCh1 = Math.floor(Math.random() * 4);
-    alCh2 = Math.floor(Math.random() * 4);
-    alCh3 = Math.floor(Math.random() * 4);
-    alCh4 = Math.floor(Math.random() * 4);
+    g11alCh1 = Math.floor(Math.random() * 4);
+    g11alCh2 = Math.floor(Math.random() * 4);
+    g11alCh3 = Math.floor(Math.random() * 4);
+    g11alCh4 = Math.floor(Math.random() * 4);
     i++;
   }
 
 
-  q.innerHTML = g11alTab[0];
+  g11q.innerHTML = g11alTab[0];
 
-  g11rep[alCh1].id = "goodRep";
-  g11rep[alCh2].id = "badRep";
-  g11rep[alCh3].id = "badRep2";
-  g11rep[alCh4].id = "badRep3";
+  g11rep[g11alCh1].id = "goodRep";
+  g11rep[g11alCh2].id = "badRep";
+  g11rep[g11alCh3].id = "badRep2";
+  g11rep[g11alCh4].id = "badRep3";
 
   g11resetClass();
   document.getElementById("goodRep").innerHTML = g11alTab[1];
@@ -105,7 +105,7 @@ function g11getRandomQA() {
   document.querySelector('#badRep3').addEventListener("click", g11getRep);
 
 
-  document.getElementById('progress').innerHTML = "Question "+g11party+" sur 10."
+  document.getElementById('g11progress').innerHTML = "Question "+g11party+" sur 10."
 
 }
 
@@ -116,7 +116,7 @@ if(this.id == "goodRep"){
   document.getElementById("goodRep").classList.add("btn-success");
   console.log(document.getElementById("goodRep").textContent);
   console.log('bonne reponse');
-  document.getElementById('result').innerHTML = g11correct + " bonne(s) réponse sur 10.";
+  document.getElementById('g11result').innerHTML = g11correct + " bonne(s) réponse sur 10.";
   document.querySelector('#goodRep').removeEventListener("click", g11getRep);
   document.querySelector('#badRep').removeEventListener("click", g11getRep);
   document.querySelector('#badRep2').removeEventListener("click", g11getRep);
