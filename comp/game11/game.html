@@ -2,6 +2,21 @@
   Author :
 -->
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
-</div>
+div class="row col-sm-7 mx-auto card text-center p-0 m-5">
+      <div class="card-header">
+        Quiz
+      </div>
+      <button id="startQuiz" class="btn w-25 mx-auto" onclick="g11start();">Commencer !</button>
+      <div id="bip" class="display">Chrono !</div>
+      <div id="main" class="card-body">
+        <h5 id="question" class="mb-3 card-title font-weight-bold"></h5>
+        <button class='w-100 btn btn-primary m-1' type='button' name='choices' value=''></button><br>
+        <button class='w-100 btn btn-primary m-1' type='button' name='choices' value=''></button><br>
+        <button class='w-100 btn btn-primary m-1' type='button' name='choices' value=''></button><br>
+        <button class='w-100 btn btn-primary m-1' type='button' name='choices' value=''></button><br>
+      </div>
+      <div class="card-footer text-muted">
+        <p id="progress"></p>
+        <p id="result"></p>
+      </div>
+    </div>
