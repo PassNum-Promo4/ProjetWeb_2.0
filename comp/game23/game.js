@@ -152,10 +152,7 @@ function g23waitForClick() {
   document.querySelector('#g23A4').addEventListener('click', g23falseAnswer);
 }
 
-function g23waitForClick() {
-  document.querySelector('#g23A1').addEventListener('click', g23trueAnswer);
 
-}
 
 function g23falseAnswer() {
   g23CurrentQnA.textContent = ' X';
@@ -170,7 +167,7 @@ function g23trueAnswer() {
 
 }
 
-function g23nextQ() { //Next question 
+function g23nextQ() { //Next question
   if (g23roundDone != 9) {
     g23roundDone++;
     g23resetGame();
