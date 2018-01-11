@@ -116,7 +116,6 @@ function g5getRandomQA() {
     var g5rightAns = g5currentQuestion[1];
     g5allRightAns.push(g5rightAns);
     g5round++;
-    console.log(g5round);
     return g5allRightAns;
   }
 }
@@ -144,6 +143,7 @@ function g5gameOver() {
   g5questArea.classList.add("bg-warning", "card");
   document.querySelector('#counter').textContent ="C'est terminé!";
   g5questArea.addEventListener('click', loadNextMiniGame());
+  return;
 }
 
 function g5displayRightAnswer() {
