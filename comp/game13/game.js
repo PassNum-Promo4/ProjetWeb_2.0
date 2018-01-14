@@ -170,4 +170,6 @@ function g13result(){
     }
     document.getElementById('score').innerHTML = "Score : " + g13score; 
     g13getRandomQA();
+    addpoints();
 }
+loadNextMiniGame();
