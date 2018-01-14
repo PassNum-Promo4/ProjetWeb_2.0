@@ -89,118 +89,85 @@ var g13q12 = [
 
 var g13_AllQ = [g13q1, g13q2, g13q3, g13q4, g13q5, g13q6, g13q7, g13q8, g13q9, g13q10, g13q11, g13q12];
 
-var g13ans1 = document.querySelector('#a1'),
-  g13ans2 = document.querySelector('#a2'),
-  g13ans3 = document.querySelector('#a3'),
-  g13ans4 = document.querySelector('#a4'),
-  g13points = 0;
+var g13score = 0;
 
-var g13displayedQuestions = [];
-var g13allRA = [];
-var g13round = -1;
-var g13timer;
+var g13index = 0;
 
-//start the game
+var g13round = 0;
 
-function g13startGame() {
-  g13getRandomQA();
-  g13click();
+var g13timer =0;
+
+var g13ansrand;
+
+var g13currentTabQ = [];
+    
+function g13random(tab) {
+   var g13q = Math.floor(Math.random()*tab.length);
+   var g13qresult = tab[g13q];
+    
+    return g13qresult;
 }
 
-//choose a randomic table
-
-function g13randomTab(tab) {
-  var g13index = Math.floor(Math.random() * (tab.length - 1));
-  var g13result = tab[g13index];
-
-  return g13result;
+// function with a ordered table as parameter and sends a random table
+function g13RA(tab){
+    var g13randTable =[];
+    // add inside the random table the question of the original table
+    g13randTable.push(tab[0]);
+    var g13tirage =[];    
+    for (var i = 0; i < 4; i++){
+        var g13valUnique = g13sendUniqueValue(g13tirage);
+        g13tirage.push(g13valUnique);
+        g13randTable.push(tab[g13valUnique]);
+    }
+    return g13randTable;
 }
 
-//choose randomic question among all questions
-
-function g13randomQuestion() {
-  var g13currentQ = g13randomTab(g13_AllQ);
-  while (g13displayedQuestions.indexOf(g13currentQ) > -1) {
-    g13currentQ = g13randomTab(g13_AllQ);
-  }
-  g13displayedQuestions.push(g13currentQ);
-
-  return g13currentQ;
+//send a value thats is not already present in the
+function g13sendUniqueValue(tab){
+    var g13randnum = Math.floor(Math.random()* 4) + 1;
+    while(g13exists(g13randnum, tab)){
+        g13randnum = Math.floor(Math.random()* 4) + 1;
+    }
+    return g13randnum;
 }
 
-
-// show questions and answers
-
-function g13setQuestion(tab) {
-  var g13_AllQ = tab[0];
-  document.querySelector('h2').innerHTML = g13_AllQ;
-
-  var g13ans1 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  a1.innerHTML = g13ans1;
-
-  var g13ans2 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  while (g13ans1 == g13ans2) {
-    var g13ans2 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  }
-  document.querySelector('#a2').innerHTML = g13ans2;
-
-  var g13ans3 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  while (g13ans1 == g13ans3 || g13ans2 == g13ans3) {
-    var g13ans3 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  }
-  document.querySelector('#a3').innerHTML = g13ans3;
-
-  var g13ans4 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  while (g13ans1 == g13ans4 || g13ans2 == g13ans4 || g13ans3 == g13ans4) {
-    var g13ans4 = tab[Math.floor(Math.random() * (tab.length - 1) + 1)];
-  }
-  document.querySelector('#a4').innerHTML = g13ans4;
-
-  return g13ans1, g13ans2, g13ans3, g13ans4;
+//verify if there is one value in the table of values
+function g13exists(valeur, tab){
+    for(i = 0; i < tab.length; i++){
+        if(tab[i] == valeur) { 
+            return true;
+        }
+    }
+    return false;
 }
-
-// random question and answers
 
 function g13getRandomQA() {
-  if (g13round == 11) {
-    var g13endGame = "Vous avez eu " + g13points + " bonnes réponses.";
-    document.querySelector('#question').innerHTML = g13endGame;
-    document.querySelector('#question').classList.add("card") = g13endGame;
-  } else {
-    g13ans1.classList.remove("bg-danger");
-    g13ans2.classList.remove("bg-danger");
-    g13ans3.classList.remove("bg-danger");
-    g13ans4.classList.remove("bg-danger");
-    var g13currentQuestion = g13randomQuestion();
-    g13setQuestion(g13currentQuestion);
-    var g13rightAns = g13currentQuestion[1];
-    g13allRA.push(g13rightAns);
-    var g13timer = setTimeout(g13getRandomQA, 6000);
-    g13round++;
+    g13currentTabQ = g13random(g13_AllQ); // contains the current question
+    var g13ElemQ = document.createElement('h2'); // create h2 containing the question
+    g13ElemQ.textContent = g13currentTabQ[0]; // contains the text of the question
+    var g13divQuestion = document.querySelector("#question"); // gets the div having the id = question
+    g13divQuestion.innerHTML = ''; // empties the div having the id = question
+    g13divQuestion.appendChild(g13ElemQ); // adds the text of the question to the div having id = question
+    var g13divAnswer = document.querySelector("#answer"); // gets the div having the id = answer
+    g13divAnswer.innerHTML = ''; // empties the div having the id = answer
+    document.getElementById('startgame').innerHTML = "";
+    g13ansrand = g13RA(g13currentTabQ);
 
-    document.getElementById('startgame').innerHTML = ""; //button Go! get away after the game starts
+    for (var i = 1; i < 5; i++) { // show the answers
+        var g13ElemA = document.createElement('input');
+        g13ElemA.value = g13ansrand[i];
+        g13ElemA.type = 'buttton';
+        g13ElemA.style = 'width:1000px'; // needed to show the entire answer
+        g13ElemA.addEventListener('click', g13result);
+        g13divAnswer.appendChild(g13ElemA);
+    }
 
-    return g13timer, g13allRA;
-  }
 }
 
-//question results and score
-
-function g13result() {
-  clearTimeout(g13timer); // stops timer
-  if (g13allRA.indexOf(this.textContent) > -1) {
-    g13points++;
-  } else {
-    this.classList.add("bg-danger");
-  }
-  document.querySelector('#score').innerHTML = "Score : " + g13points;
-  return g13points;
-}
-
-function g13click() {
-
-  g13ans1.addEventListener('click', g13result);
-  g13ans2.addEventListener('click', g13result);
-  g13ans3.addEventListener('click', g13result);
-  g13ans4.addEventListener('click', g13result);
+function g13result(){
+    if(this.value == g13currentTabQ[1]){
+        g13score = g13score + 1;
+    }
+    document.getElementById('score').innerHTML = "Score : " + g13score; 
+    g13getRandomQA();
 }
