@@ -1,14 +1,23 @@
 <!--
   Author : Kirill Petrov 
 -->
+
+
 <div class="bg-light">
 
 
     <div class="title text-center bg-secondary w-100 p-3" style="font-size: 38px;font-weight: bold;padding-top: 2px;color: black;">
         <p>Quiz sur la connaissance de Bootstrap</p>
     </div>
-    <p>Timer: </p>
-    <div id="timer_inp">10</div>
+    <div class="text-danger">
+        <p>Timer: </p>
+        <div id="timer_inp">10</div>
+    </div>
+
+    <div class="text-primary"><label>Score totale:</label>
+        <div id="score"></div>
+    </div>
+
     <style type="text/css">
         .wrapper {
             width: 600px;
@@ -51,9 +60,11 @@
         <br>
         <center>
             <button type="button" class="myButton btn btn-warning" id="start" onclick="check(10)">Commencer le test</button>
-
         </center>
     </div>
 
 </div>
+
+
+
 
