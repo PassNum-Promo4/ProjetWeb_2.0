@@ -163,4 +163,6 @@ function g5displayRightAnswer() {
   setTimeout(g5getRandomQA,1500);
 }
 
-g5getRandomQA();
+loadNextMiniGame();
+// NOTE JULIEN: Cas de boucle infinie et de mauvaise variable
+//g5getRandomQA();
