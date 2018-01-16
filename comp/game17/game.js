@@ -12,11 +12,11 @@ document.write("<a id='end' style='display: none;' class='myButton btn btn-succe
 
 
 
-function check(num) {
+function check(g17num) {
     
  
 
-    if (num == 10) {
+    if (g17num == 10) {
 
         document.getElementById('area').style.display = 'block';
         document.getElementById('start').style.display = 'none';
@@ -83,7 +83,7 @@ function check(num) {
         //Les bons réponses
         var g17answer = [1, 2, 2, 3, 0, 1, 3, 0, 2, 0];
 
-        if (num == g17answer[g17countQuest]) g17plus++;
+        if (g17num == g17answer[g17countQuest]) g17plus++;
 
 
         if (g17questions.length - 1 > g17countQuest) {
