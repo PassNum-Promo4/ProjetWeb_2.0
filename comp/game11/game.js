@@ -29,7 +29,7 @@ g11start();
 
 function g11start() {
   document.getElementById("g11main").style.display = "initial";
-  intervalId = setInterval(g11bip, 1000);
+  g11intervalId = setInterval(g11bip, 1000);
   document.getElementById('startQuiz').style.display = "none";
   g11getRandomQA();
 
@@ -47,9 +47,7 @@ function g11bip()
 
 function g11action()
 {
-  clearInterval(intervalId);
-  document.getElementById("g11bip").innerHTML = "GAME OVER!";
-  document.getElementById("g11main").style.display = "none";
+  clearInterval(g11intervalId);
 }
 
 
@@ -151,6 +149,7 @@ if(this.id == "goodRep"){
   if(g11party == 10) {
     clearTimeout(g11inter);
     setTimeout(g11action, 1000);
+    clearInterval(g11intervalId);
     loadNextMiniGame();
   }
 
@@ -177,6 +176,7 @@ function g11resetTimer(){
     g11counter = 10;
   } else if (g11party == 10 && g11counter == 0) {
       clearTimeout(g11inter);
+      clearInterval(g11intervalId);
       setTimeout(g11action, 2000);
       loadNextMiniGame();
   }
