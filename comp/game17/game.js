@@ -3,7 +3,7 @@
 */
 
 
-var g17countQuest = 0;
+/*var g17countQuest = 0;
 var g17plus = 0;
 var g17test_start = 0;
 var g17curent_url = document.URL;
@@ -47,7 +47,7 @@ function check(g17num) {
 
 
              
-            console.log(g17tenRandom)*/
+            console.log(g17tenRandom)
 
 
             //Les variants de réponses
@@ -82,7 +82,7 @@ function check(g17num) {
 
 
 
-        console.log(g17tenRandom)*/
+        console.log(g17tenRandom)
 
 
 
@@ -130,4 +130,6 @@ function check(g17num) {
         document.getElementById('g17score').innerHTML = g17plus;
 
     }
-}
+}*/
+loadNextMiniGame();
+//ligne 34 génère des erreurs .
