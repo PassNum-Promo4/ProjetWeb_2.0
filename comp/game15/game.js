@@ -39,7 +39,7 @@ function g15timer (){ //timer
 g15timer();
 
 function g15randomquestion(){
-
+    clearInterval(g15downloadTimer);
   g15index=Math.floor(Math.random() * g15GL.length);
   console.log(g15GL.length);
   var g15rand = g15GL[g15index];
