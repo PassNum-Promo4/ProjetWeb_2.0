@@ -84,7 +84,6 @@ function g9randomQuestion() {
             g9layedQuestions[g9random] = i;
             var g9currentQuestion = g9question[i];
             g9random = g9random + 1
-            console.log(i);
        return g9currentQuestion
         }
         
