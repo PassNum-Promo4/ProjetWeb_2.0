@@ -47,8 +47,6 @@ var g21result;
 
 //When user will click on this button, this will activate all fonctions undermentioned
 
-var answers = "";
-var test = document.querySelector("#start");
 
 function g21Start() {
 
@@ -91,6 +89,7 @@ function g21RandomQuestionAnswer() {
     }
   }
   g21totalQuestions.splice(g21randomQ, 1);
+  loadNextMiniGame();
 }
 
 function g21reset() {
@@ -104,6 +103,7 @@ function g21reset() {
 
 function g21True() {
   g21Answer1.classList.add('p-1', 'border', 'bg-success');
+  addPoints(1)
   g21reset();
   g21RandomQuestionAnswer();
 }
@@ -116,6 +116,6 @@ function g21False() {
 }
 
 function g21timer() {
- let timeLeft = 6
-timeLeft = document.querySelector("#g21Countdown").innerHTML = "Compte à rebours : 6"
+ let g21timeLeft = 6
+g21timeLeft = document.querySelector("#g21Countdown").innerHTML = "Compte à rebours : 6"
 }
