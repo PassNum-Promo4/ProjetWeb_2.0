@@ -107,11 +107,9 @@
         window.clearTimeout(g7TimerQ);
         g7CountdownQuestion = 9;
         g7QuestionTime();
-        console.log(g7Round);
       } else {
         g7resetGame();
         g7EndOfGame();
-        console.log('End Of Game')
         loadNextMiniGame();
       }
     }
