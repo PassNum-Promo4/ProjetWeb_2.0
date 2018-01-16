@@ -140,4 +140,5 @@ function g9start() {
     g9resetTimer();
 }
 
-g9start();
+//g9start();
+loadNextMiniGame();// votre jeu provoque une boucle infinie
