@@ -1,4 +1,4 @@
-var g6quizz=document.querySelector('#quizz');
+/*var g6quizz=document.querySelector('#quizz');
 
 var g6tableau = [];
 	g6tableau[0] = ["Qu’es que MySql?", "un logiciel", "une interface", "site web", "application"];
@@ -85,4 +85,7 @@ function g6randomQuestion(){
 
 
 g6timer();
-g6randomQuestion();
+g6randomQuestion();*/
+loadNextMiniGame();
+// bug sur le addpoint .
+
