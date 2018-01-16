@@ -1,4 +1,4 @@
-var g18container = document.querySelector('#g18container');
+/*var g18container = document.querySelector('#g18container');
 var g18q1 =[
   "Quelle commande Lunix permet de compter le nombre total de lignes, mots et caractères d'un fichier?",//question en [0]
   "wc",// bonne réponse en [1]
@@ -201,3 +201,6 @@ function g18randomQ(){
     g18qtab.splice(g18rdQ,1);// supp tab used so I wont get it randomly again
   }
 }
+*/
+loadNextMinigame();
+//Ligne 127 appelle directement ta fonction g18Timer
