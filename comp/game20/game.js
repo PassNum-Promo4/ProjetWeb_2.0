@@ -58,7 +58,6 @@ g20StartBtn.style.fontFamily = "monospace";
 
 
 
-
 //GENERAL QUIZ
 var g20Qtab = [g20Q1, g20Q2, g20Q3, g20Q4, g20Q5, g20Q6, g20Q7, g20Q8, g20Q9, g20Q10];
 var g20Q = '';
@@ -104,14 +103,20 @@ function g20UpdateGameTimer() {
 }
 
 
+// GAME STARTER - OUT OF FUNCTIONS
+document.querySelector('#g20StartBtn').addEventListener('click', g20startGame);
 
-// GAME STARTER = ALLOWS GAME TO BEGIN WHEN START BUTTON IS PRESSED
+
+// GAME STARTER BUTTON PRESSED = ALLOWS GAME TO BEGIN 
 function g20startGame() {
     g20resetGame();
     g20getRandom();
     g20GameContdown();
     g20roundN = 0;
+    g20StartBtn.style.display = "none";
 }
+
+
 
 //SCORING
 function g20score() {
@@ -267,7 +272,7 @@ function g20showAns() {
     document.getElementById("g20A2").classList.add("btn-danger", "text-dark");
     document.getElementById("g20A3").classList.add("btn-danger", "text-dark");
     document.getElementById("g20A4").classList.add("btn-danger", "text-dark");
-    g20revealTimer = window.setTimeout('g20nextQ()', 2500);
+    g20revealTimer = window.setTimeout('g20nextQ()', 1500);
 
 }
 
@@ -307,35 +312,35 @@ function g20verdict() {
     g20finalRst.id = 'g20finalDisp';
     g20finalRst.style.font = "bold 1.5rem monospace";
     //g20finalRst.classList.add('col-12', 'd-flex', 'justify-content-center', 'row', 'text-center', 'p-1', 'alert-info', 'mx-auto', 'font-weight-bold', 'text-dark', 'mt-5'); // DOES NOT WORK IN MONOSPACE - WHYYYYYY?
-    
-    g20finalRst.classList.add('col-12', 'd-flex', 'justify-content-center', 'mt-5', 'text-center', 'text-light', 'row');// WORKS IN 'MONOSPACE' 
+
+    g20finalRst.classList.add('col-12', 'd-flex', 'justify-content-center', 'mt-5', 'text-center', 'text-light', 'row'); // WORKS IN 'MONOSPACE' 
 
     document.querySelector('#g20jumbo').appendChild(g20finalRst);
     document.querySelector('#g20major').innerHTML = '';
     if (g20rst <= 4) { //g20resetGame();
 
-        alert('Terminé!');
+        alert('GAME OVER');
         g20finalRst.textContent = 'Score: ' + g20rst + '/10. \n\n\t C\'EST INADMISSIBLE !!!';
 
         //g20rst = 0;
 
     } else if (g20rst <= 7) { //g20resetGame();
 
-        alert('Terminé!');
-        g20finalRst.textContent = 'Score: ' + g20rst + '/10 \n\n\t  BIEN, MAIS DES ERREURS ONT ÉTÉ COMMISES';
+        alert('GAME OVER');
+        g20finalRst.textContent = 'Score: ' + g20rst + '/10 \n\n\t  BIEN, MAIS DES ERREURS ONT ÉTÉ COMMISES ';
 
         //g20rst = 0;
 
     } else if (g20rst <= 9) { //g20resetGame();
 
-        alert('Terminé!');
+        alert('GAME OVER');
         g20finalRst.textContent = 'Score: ' + g20rst + '/10 \n\n\t  BON TRAVAIL ';
 
         //g20rst = 0;
 
     } else if (g20rst == 10) { //g20resetGame();
 
-        alert('Terminé!');
+        alert('GAME OVER');
         g20finalRst.textContent = 'Score: ' + g20rst + '/10 \n\n\t  PERFECT';
 
     }
@@ -345,9 +350,9 @@ function g20verdict() {
 
 function g20endBtn() {
     var g20newBtnArea = document.getElementById("g20top");
-    g20newBtnArea .style.paddingBottom = "300px";
-    
-    
+    g20newBtnArea.style.paddingBottom = "300px";
+
+
     var g20goToNext = document.createElement('button'); //create a btn
     g20goToNext.id = 'g20finalBtn'; // give it an id
     g20goToNext.textContent = 'NEXT QUIZZ'; // set the text of the btn
@@ -355,7 +360,7 @@ function g20endBtn() {
     g20goToNext.style.fontFamily = "monospace";
     g20goToNext.classList.add('btn-block', 'btn-default', 'col-3', 'col-s-3', 'col-xs-3', 'mx-auto', 'm-2', 'mb-5', 'font-weight-bold', 'text-black', 'active', 'rounded'); // add classes to the btn
     g20goToNext.classList.remove('jumbotron'); // remove some classes, doesnt work
-    g20goToNext.onclick = loadNextMiniGame; // replace by loadNextMiniGame
+    g20goToNext.onclick = loadNextMiniGame; // replace by loadNextMiniGame - g20startGame
     document.querySelector('#g20top').appendChild(g20goToNext); // make the btn "appear" pls pick a better place as it is too down
 
 
