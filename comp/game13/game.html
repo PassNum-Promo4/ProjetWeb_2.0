@@ -2,11 +2,12 @@
   Author : Amanda Medeiros
 -->
 <div>
-        <div class="container">
+       <div class="container">
             <div class="row">
                 <div id="startgame" class="mx-auto">
-                    <input type="button" value="Commencer le jeu" onclick="g13getRandomQA()">
+                    <input type="button" value="Commencer le jeu" onclick="g13getRandomQA(), g13start();">
                 </div>
+                <div class="display"><p>Time left : <span id="g13chrono"></span></p></div>
                 <div id="question" class="col-12 text-center m-3">
                 </div>
                 <div id="answer" class="col-12 p-3 m-3">
@@ -16,11 +17,7 @@
                 <div class="col-12 mx-auto">
                     <div id="score">
                     </div>
-                    <div class="mx-auto">
-                        <input type="button" value="Next Game" onclick="loadNextMiniGame()">
-                    </div>
                 </div>
             </div>
         </div>
-  
 </div>
