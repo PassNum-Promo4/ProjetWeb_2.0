@@ -1,9 +1,10 @@
 /*
-  Author :
+  Author :boukhemis dib
 */
 /*global document*/
 // ------------------------------------- Variables
-var g9random = 0;
+
+var g9random = 1;
 var j = 0;
 var g9countdown;
 var g9sec;
@@ -77,22 +78,25 @@ function g9currentTime() {
     
 } */
 function g9randomQuestion() {
-  
+
     while (g9random < 11) {
         var i = Math.floor(Math.random() * 10);
         if (g9layedQuestions.indexOf(i) === -1) {
             g9layedQuestions[g9random] = i;
             var g9currentQuestion = g9question[i];
-            g9random = g9random + 1
-            console.log(i);
-       return g9currentQuestion
+           
+            console.log(g9random);
+             g9random = g9random + 1;
+             //console.log(i);  
+            return g9currentQuestion
+              
+                
         }
-        
-            
-        }
-        if (g9random==10)
-            document.body.style.background = "#f3f3f3 url('img_tree.png') no-repeat right top";
-        }
+    
+          
+    }
+
+}
 
 /*function g9Table(table) {
     var g9rand = Math.floor(Math.random() * 9);
@@ -114,7 +118,7 @@ function g9funScors() {
 }
 
 function g9loadQuestion() {
-    //var g9cQuestion = g9randomQuestion()
+
     var i = 0;
     var g9qstn = g9randomQuestion();
     var g9q = g9qstn[0];
@@ -134,8 +138,10 @@ function g9loadQuestion() {
     g9element1[g9numRand2].innerHTML = g9ins2;
     g9element1[g9numRand3].innerHTML = g9ins3;
     g9element1[g9numRand4].innerHTML = g9ins4;
+
     g9resetTimer()
 }
+
 function g9start() {
     g9loadQuestion();
     g9resetTimer();
