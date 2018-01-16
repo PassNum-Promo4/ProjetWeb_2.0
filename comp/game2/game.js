@@ -1,6 +1,7 @@
 
-  Author :bilel AMRAOUI
-*/
+/* Author :bilel AMRAOUI */
+
+
 var g2Q1 = new Array('comment rendre la règle h1 {font-style:italic;} prioritaire par rapport à toutes ?','h1 {font-style: italic !important; }','h1 override{font-style: italic; }','h1 no_override {font-style: italic; }','h1#high {font-style: italic; }');
 var g2Q2 = new Array('Que se passe-t-il pour le texte placé entre ces balises <canvas> Texte </canvas> ?','il est ignoré sauf si le navigateur ne supporte pas ces balises','il est toujour affiché','il est affiché, sauf si le navigateur ne supporte pas ces balises','il n est jamais affiché ');
 var g2Q3 = new Array('Quelle nouvelle balise de section permet de regrouper un contenu tangentiel au contenu principal du document ?','<aside>','<section id="sidebar">','<sidebar>','<details>');
