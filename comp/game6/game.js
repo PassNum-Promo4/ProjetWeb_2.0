@@ -15,7 +15,7 @@ var g6tableau = [];
 var g6time=11;
 var g6updateTime;
 function g6score(){
-	addpoint(1);//fait appel a la fonction addpoint() qui calcul le score
+	addPoints(1);//fait appel a la fonction addpoint() qui calcul le score
 }
 
 function g6color(){
