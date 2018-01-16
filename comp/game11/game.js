@@ -48,8 +48,6 @@ function g11bip()
 function g11action()
 {
   clearInterval(intervalId);
-  document.getElementById("g11bip").innerHTML = "GAME OVER!";
-  document.getElementById("g11main").style.display = "none";
 }
 
 
@@ -151,6 +149,7 @@ if(this.id == "goodRep"){
   if(g11party == 10) {
     clearTimeout(g11inter);
     setTimeout(g11action, 1000);
+    clearInterval(intervalId);
     loadNextMiniGame();
   }
 
@@ -177,6 +176,7 @@ function g11resetTimer(){
     g11counter = 10;
   } else if (g11party == 10 && g11counter == 0) {
       clearTimeout(g11inter);
+      clearInterval(intervalId);
       setTimeout(g11action, 2000);
       loadNextMiniGame();
   }
