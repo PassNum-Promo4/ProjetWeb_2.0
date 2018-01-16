@@ -1,5 +1,4 @@
-// author: Marine Cristol 
-var g6time = 50;
+var g6quizz=document.querySelector('#quizz');
 
 var g6tableau = [];
 	g6tableau[0] = ["Qu’es que MySql?", "un logiciel", "une interface", "site web", "application"];
@@ -13,105 +12,77 @@ var g6tableau = [];
 	g6tableau[8] = ["Comment vider une table ? ", "truncate", "use", "drop", "show"];
 	g6tableau[9] = ["Comment sélectionner une table ?", "select", "truncate", "describe", "use"];
 
-function g6Checker(event){
-	if(event.target.attributes[3].nodeValue === "reponse right"){
-		//addPoints()
-	}
-
+var g6time=11;
+var g6updateTime;
+function g6score(){
+	addpoint(1);//fait appel a la fonction addpoint() qui calcul le score
 }
 
-	
-function g6randomAnswers(tab){
-	var g6intermediaire = Math.floor(Math.random() * 4)+1;
-	var g6tabRandom = [];
-	g6tabRandom[0] = g6intermediaire;
-
-	for(var g6i=1; g6i<4; g6i++){
-		while(g6intermediaire === g6tabRandom[0] || g6intermediaire === g6tabRandom[1] || g6intermediaire === g6tabRandom[2] ||g6intermediaire === g6tabRandom[3]){
-			g6intermediaire = Math.floor(Math.random() * 4)+1;
-		}
-		g6tabRandom[g6i] = g6intermediaire;
-	}
-
-	var g6htmlReponse = "";
-	for(g6i=0; g6i<4; g6i++){
-		if (g6tabRandom[g6i] === 1) {
-			g6htmlReponse += "<li>"+g6tableau[tab][g6tabRandom[g6i]]+"<INPUT type='radio' name='question"+ tab +"' onclick='g6Checker(event)' class='reponse right' ></li>";
-		}else{
-			g6htmlReponse += "<li>"+g6tableau[tab][g6tabRandom[g6i]]+"<INPUT type='radio' name='question"+ tab +"'onclick='g6Checker(event)' class='reponse false' ></li>";
-
-		}
-	}
-	return g6htmlReponse;
-
+function g6color(){
+	this.style.backgroundColor="red";//mets les boutons en rouge
+	document.getElementById('goodAnswer').style.backgroundColor="green";// Le bouton sera rouge
+	//pour le bouton avec id bonne réponse
+	setTimeout(function(){g6randomQuestion()},2000);//appel la fonction des questions aléatoires 
 }
 
+function g6timer(){
+	g6time =g6time-1;
+	document.querySelector('#timer').value="temps restant:"+g6time;
+	g6updateTime=setTimeout(function(){g6timer()},1000);
+	if (g6time<1) {
+		g6time = 11;
+		g6randomQuestion();
+	}
+}
+
+function gameOver(){
+	clearTimeout(g6updateTime);//arrete le timer
+	document.querySelector('#question').innerHTML="";
+	document.querySelector('#reponse').innerHTML="";
+	setTimeout(function(){loadNextMiniGame()}, 5000);
+}
 
 function g6randomQuestion(){
-	var g6tabAleatoire =[];
-	var g6interQuestion = Math.floor(Math.random() * 10);;
+	if (g6tableau.length < 1) {
+		gameOver();
+	}else{
 
-		g6tabAleatoire[0] = g6interQuestion;
+	g6time=11;
+	document.querySelector('#question').innerHTML="";
+	document.querySelector('#reponse').innerHTML="";
+	var g6randomQ = Math.floor(Math.random()* g6tableau.length);//parcours tableau
+	var g6question = document.querySelector('#question');//précise dans la div
+	g6question.textContent=g6tableau[g6randomQ][0];//met la question avec l'indice aléatoire
+	g6quizz.appendChild(g6question);//met dans le html
+	g6tableau[g6randomQ].shift();//supprime la question
 
+	var g6reponse = document.querySelector('#reponse');//précise dans la div
+	var g6tabRep =[];// creation d'un nouveau tableau pour pouvoir mettre les boutons 
 
-	for(var g6i=1; g6i<10; g6i++){
-		while(g6interQuestion === g6tabAleatoire[0] || g6interQuestion === g6tabAleatoire[1] || g6interQuestion === g6tabAleatoire[2] ||g6interQuestion === g6tabAleatoire[3] ||g6interQuestion === g6tabAleatoire[4] ||g6interQuestion === g6tabAleatoire[5] ||g6interQuestion === g6tabAleatoire[6] ||g6interQuestion === g6tabAleatoire[7] ||g6interQuestion === g6tabAleatoire[8] ||g6interQuestion === g6tabAleatoire[9]){
-			g6interQuestion = Math.floor(Math.random() * 10);
+	for (var i = 0; i < g6tableau[g6randomQ].length; i++) {
+		var g6bouton = document.createElement('button');
+		g6bouton.textContent=g6tableau[g6randomQ][i];
+		if (i===0) {
+			g6bouton.id="goodAnswer";// creation du bouton avec id bonne reponse
+			g6bouton.addEventListener("click", g6score);
+		}else{
+			g6bouton.classList.add("wrongAnswers");
 		}
-		g6tabAleatoire[g6i] = g6interQuestion;
+		g6bouton.addEventListener("click", g6color);
+		g6tabRep.push(g6bouton);
+
 	}
-
-	var g6htmlQuestion = "";
-	for(g6i=0; g6i<10; g6i++){
-		g6htmlQuestion += "<div class='randomQuestion' id='Q"+g6i+"'>"+g6tableau[g6tabAleatoire[g6i]][0]+"</div><ul>"+g6randomAnswers(g6tabAleatoire[g6i])+"</ul>"; 
-		}
-	
-	return g6htmlQuestion;
-}
-
-
-
-function g6GenerateQuizz(){
-	document.getElementById('quizz').innerHTML= "Timer/seconde: <div id='timer'></div>Score:<div id='score'></div>"+g6randomQuestion();
-	var g6monInterval=window.setInterval(function(){g6Timer(g6monInterval)},1000);
-	loadNextMiniGame();
-
-}
-
-function g6Timer(monInterval){
-	
-	if (g6time <= 0) {
-	g6StopTimer(monInterval);
+	g6tabRep.sort(function(a, b){return 0.5 - Math.random()});//reponse aléatoire
+	for (var i = 0; i < g6tabRep.length; i++) {
+		g6reponse.appendChild(g6tabRep[i]);
 	}
-	else{
-		g6time -= 1; 
-	document.getElementById('timer').innerHTML=g6time;
-}	
-}
-
-
-function g6StopTimer(stop){
-	window.clearInterval(stop);
-	var g6tabradio = document.getElementsByClassName('reponse');
-	for(var g6i=0;g6i<g6tabradio.length;g6i++){
-		g6tabradio[g6i].disabled=true;
-	}
-	addPoints();
-}
-function addPoints(){
-	var g6score = 0;
-	var g6point = document.getElementsByClassName('reponse');
-	for(var g6i=0;g6i<g6point.length;g6i++){
-		if ( g6point[g6i].checked===true && g6point[g6i].getAttribute("class") === "reponse right"){
-			g6score ++;
-		}
-	}
-	document.getElementById('score').innerHTML=g6score;
-
+	g6quizz.appendChild(g6reponse);
+	g6tableau.splice(g6randomQ,1);//supprime le tableau
+    }
 }
 
 
 
 
-
-
+g6timer();
+g6randomQuestion();
