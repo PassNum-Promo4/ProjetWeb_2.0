@@ -1,26 +1,29 @@
-<!--author: Lionel SUVELOR-->
+<!--
+author: Lionel SUVELOR
+-->
 
 <div id="g20playground" >
 
         <div class="jumbotron " id="g20jumbo">
             <h1 class="display-5 text-bold text-center text-light"> JS QUIZ</h1>
-            <!-- CM and PN logos will be floating placed left and right of the h1 --> 
+            <!-- CM and PN logos will be floating placed left and right of the h1 -->
         </div>
 
 
-        <div class="container-fluid ">
+        <div class="container-fluid">
             <!-- remove mt-5 if header is placed-->
+            <div id="g20top"></div>
             <div class="row">
                 <!-- below classes can be set in JS file but as I've done some CSS modifications I let 'em here to not overload the JS part-->
-                <span id="g20scoreFinal" class="col-6 d-flex justify-content-center row text-center p-1 alert-info mx-auto font-weight-bold text-dark"></span>
+                <span id="g20gameScore" class="col-6 d-flex justify-content-center row text-center p-1 alert-info mx-auto font-weight-bold text-dark"></span>
                 <!--progressive score display-->
                 <span id="g20time" class="col-6 d-flex justify-content-center row text-center p-1 alert-info mx-auto font-weight-bold text-dark"></span>
                 <!-- timer for each question-->
             </div><br />
-            <input id="" class="btn-block btn-default col-3 col-s-3 col-xs-3 mx-auto m-2 font-weight-bold text-black active" type="button" value="START" onClick="g20startGame();"> <!-- should I put g20startGame() at the beginnin of JS file and remove start button?-->
+            <input id="g20StartBtn" class="btn-block btn-default col-3 col-s-3 col-xs-3 mx-auto m-2 font-weight-bold text-black active" type="button" value="START" onClick="g20startGame()"> <!-- should I put g20startGame() at the beginnin of JS file and remove start button?-->
             <div class="g20Q pb-4">
-                <div id="Q20Q" class="col-12 d-flex justify-content-center m-3 mt-5 text-center text-light row "></div>
-                <div id="Q20A1-4" class="col-12 d-flex justify-content-center m-3 text-center text-light row"></div>
+                <div id="g20Q" class="col-12 d-flex justify-content-center m-3 mt-5 text-center text-light row"></div>
+                <div id="g20A1-4" class="col-12 d-flex justify-content-center m-3 text-center text-light row"></div>
             </div>
         </div>
         <script type="text/javascript" src="game.js"></script>
