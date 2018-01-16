@@ -1,7 +1,7 @@
 /*
 Author : Naimi Mohamed
 */
-var g15rep=document.getElementsByName('rep');
+/*var g15rep=document.getElementsByName('rep');
 var g15p=document.querySelector("#Principal");
 var g15GLinter=[];
 var g15true=0;
@@ -134,10 +134,12 @@ function g15resetclass(){
 
 g15resetclass();
 
+
 function g15classvisuel(){
   g15q1.className="font-weight-bold m-4";
   timer.className="m-2 d-inline";
   g15p.className="m-3";
   document.getElementById('4_bouton').className=" mr-4 ";
 }
-g15classvisuel();
+g15classvisuel();*/
+loadNextMiniGame();
