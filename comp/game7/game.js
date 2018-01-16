@@ -177,14 +177,14 @@
     document.querySelector('#g7A4').addEventListener('click', g7falseAnswer);
   }
 
-  function g7TrueAnswer() {
+  function g7trueAnswer() {
     document.querySelector('#g7A1').classList.add('btn','btn-success','rounded','m-1','p-3');
     window.setTimeout('g7nextQuest()',1000);
     addPoints(1);
 
   }
 
-  function g7FalseAnswer() {
+  function g7falseAnswer() {
     document.querySelector('#g7A2').classList.add('btn','btn-danger','rounded','m-1','p-3');
     document.querySelector('#g7A3').classList.add('btn','btn-danger','rounded','m-1','p-3');
     document.querySelector('#g7A4').classList.add('btn','btn-danger','rounded','m-1','p-3');
