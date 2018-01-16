@@ -202,5 +202,5 @@ function g18randomQ(){
   }
 }
 */
-loadNextMinigame();
+loadNextMiniGame();
 //Ligne 127 appelle directement ta fonction g18Timer
