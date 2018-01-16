@@ -1,0 +1,57 @@
+.bg-color__body {
+ background-color: #eaedf6 ;
+}
+
+button:hover {
+ background-color: #c8d3eb ;
+ transition-duration: 0.2s;
+ border: 1px solid white;
+}
+
+button:hover p{
+ color: white;
+}
+
+p {
+ margin: 0px;
+ font-size: 0.8em;
+ font-family: 'Ubuntu', sans-serif;
+}
+
+.round {
+ border-radius: 8px;
+}
+
+.bg__true-answer {
+ background-color: #74c37a ;
+}
+
+.bg__false-answer {
+background-color: #df757a ;
+}
+
+.bg--yellow {
+  background-color: #FCCC1A;
+}
+
+.bg--orange {
+  background-color: #FB9902;
+}
+
+.bg--red {
+  background-color: #FC600A;
+}
+
+.animation--slide-left {
+width: 0%;
+height: 20px;
+animation-direction: normal;
+animation-name: slide-left;
+animation-timing-function: linear;
+animation-duration: 9s;
+}
+
+@keyframes slide-left {
+from {width: 100%;}
+to {width: 0%;
+}
