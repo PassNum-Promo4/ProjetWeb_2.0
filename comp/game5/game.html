@@ -1,44 +1,27 @@
-<!--
-  Author : Julie Cervera
--->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>quizz</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-  </head>
-<body>
+<!--   Author : Julie Cervera -->
 
-<div>
+  <div>
 
-  <div class="p-5" style="width:100%;">
-    <p id="counter" class="text-center display-4"></p>
+    <form class="p-5" style="width:100%;">
 
-    <div id="quest" class="col-12 text-center">
-    </div>
-    <div class="row">
-      <div id="ans1" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans2" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans3" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans4" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-    </div>
-    <div class="card">
-      <span id="score" class="card-body text-center"></span>
-    </div>
+      <p id="counter" class="text-center display-4"></p>
+  
+      <label for="quizz" id="quest" class="col-12 text-center"></label>
 
+      <div class="row">
+        <button name="quizz" id="ans1" onclick="javascript:return false;" class="text-center col-12 border border-dark rounded m-2 p-4">
+        </button>
+        <button name="quizz" id="ans2" onclick="javascript:return false;" class="text-center col-12 border border-dark rounded m-2 p-4">
+        </button>
+        <button name="quizz" id="ans3" onclick="javascript:return false;" class="text-center col-12 border border-dark rounded m-2 p-4">
+        </button>
+        <button name="quizz" id="ans4" onclick="javascript:return false;" class="text-center col-12 border border-dark rounded m-2 p-4">
+        </button>
+      </div>
+      
+    </form>
+    
+    <script type="text/javascript" src="game.js"></script>
+  
   </div>
-
-  <script type="text/javascript" src="game.js"></script>
-
-</div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-</div>
-</body>
-</html>
+  
