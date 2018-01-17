@@ -15,11 +15,11 @@ var g5questions = new Array(
   new Array("Comment afficher a dans la console ?",  "console.log(a)",  "alert(a)",  "log.console(a)", "document.write(a)"),
   new Array("Quel est un nom valable pour une variable?", "name2", "2name", "Name2", "var"));
   var g5questionInter = g5questions;
-  var g5questArea = document.querySelector('#quest');
-  var g5ans1 = document.querySelector('#ans1');
-  var g5ans2 = document.querySelector('#ans2');
-  var g5ans3 = document.querySelector('#ans3');
-  var g5ans4 = document.querySelector('#ans4');
+  var g5questArea = document.querySelector('#g5quest');
+  var g5ans1 = document.querySelector('#g5ans1');
+  var g5ans2 = document.querySelector('#g5ans2');
+  var g5ans3 = document.querySelector('#g5ans3');
+  var g5ans4 = document.querySelector('#g5ans4');
   var g5round = 0;
   var g5displayedQuestions = new Array();
   var g5allRightAns = new Array();
@@ -89,16 +89,16 @@ function g5setQuestion(tab) {
 
   // Display answers
   var g5indexAns1 = g5random(tab);
-  ans1.textContent = tab.splice(g5indexAns1,1);
+  g5ans1.textContent = tab.splice(g5indexAns1,1);
 
   var g5indexAns2 = g5random(tab);
-  ans2.textContent = tab.splice(g5indexAns2,1);
+  g5ans2.textContent = tab.splice(g5indexAns2,1);
   
   var g5indexAns3 = g5random(tab);
-  ans3.textContent = tab.splice(g5indexAns3,1);  
+  g5ans3.textContent = tab.splice(g5indexAns3,1);  
 
   var g5indexAns4 = g5random(tab);
-  ans4.textContent = tab.splice(g5indexAns4,1);
+  g5ans4.textContent = tab.splice(g5indexAns4,1);
 
 }
 
@@ -148,7 +148,6 @@ function g5displayRightAnswer() {
           return;
         } else {
         g5timeleft --;        
-        document.querySelector('#counter').textContent = g5timeleft;
       }
 
       }
@@ -161,12 +160,7 @@ function g5displayRightAnswer() {
 // Ends the game
 function g5gameOver() {
   clearTimeout(g5updateTime);
-  var g5endGameMessage = "Cliquez pour passer au jeu suivant";
-  g5questArea.textContent = g5endGameMessage;
-  g5questArea.classList.add("bg-warning", "card");
-  document.querySelector('#counter').textContent ="C'est terminé!";
-  g5questArea.addEventListener('click', loadNextMiniGame);
-
+  loadNextMiniGame();
 }
 
 
