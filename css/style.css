@@ -42,7 +42,12 @@ background-color: #df757a ;
   background-color: #FC600A;
 }
 
+.paused{
+  animation-play-state: paused;
+}
+
 .animation--slide-left {
+  background-color: red;
 width: 0%;
 height: 20px;
 animation-direction: normal;
@@ -52,6 +57,8 @@ animation-duration: 9s;
 }
 
 @keyframes slide-left {
-from {width: 100%;}
-to {width: 0%;
+from {width: 100%;
+      background-color: yellow;}
+ to {width: 0%;
+     background-color: :white;}
 }
