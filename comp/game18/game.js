@@ -80,14 +80,17 @@ var g18q10 =[
 ];
 
 var g18qtab = [g18q1,g18q2,g18q3,g18q4,g18q5,g18q6,g18q7,g18q8,g18q9,g18q10];// tableau contenant chaque tableau de question/reponse
-var g18Time=11;
+var g18Time=9;
 var g18uptadeTime;
 var g18result=document.querySelector('.g18result');
 g18result.style.display="none";
 
+
+
 resetGameTitle("QUIZZ COMMANDES LINUX")
 
 function g18resultQ(){
+  document.querySelector('.progress-bar').classList.add("paused");
   //.disabled=true;
   g18Time=g18Time+1;
   this.classList.add("bg__false-answer");
@@ -138,7 +141,7 @@ function g18Timer(){
   g18uptadeTime=setTimeout(g18Timer, 1000);
 
   if (g18Time<1) {// end of timer reset time and charge new Q?
-    g18Time=11;
+    g18Time=9;
     g18randomQ();
   }
 }
@@ -173,11 +176,16 @@ function g18gameOver(){
 
 function g18randomQ(){
 
+  document.querySelector('.progress-bar').classList.remove("paused");
+  var g18ProgressBar=document.querySelector('.progress-bar');
+  document.querySelector('.progress').innerHTML="";
+  var progress=document.querySelector('.progress');
+  progress.appendChild(g18ProgressBar);
   if (g18qtab.length<1) {//test if I have questions left
     g18gameOver();
   }else {
 
-    g18Time=11;//reste time to 11 for new question
+    g18Time=9;//reste time to 11 for new question
     //document.querySelector('.g18Rfield').innerHTML="";
     document.querySelector('#g18R1').innerHTML="";
     document.querySelector('#g18R2').innerHTML="";
