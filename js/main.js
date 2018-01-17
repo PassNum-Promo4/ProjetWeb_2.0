@@ -13,6 +13,10 @@ let miniGamesURLArray;
 let miniGamesGitHubAccountDOMelement;
 let miniGamesTotalDOMelement;
 
+function resetGameTitle(title){
+  document.querySelector('#themeGame').textContent=title;
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   //Store DOM elements :
   contentDOMelement = document.getElementById('content');
@@ -53,7 +57,7 @@ function loadNextMiniGame(){
     miniGamesGitHubAccountDOMelement.innerHTML = gameAccount[gameName];
     miniGamesGitHubAccountDOMelement.setAttribute("href",gitHubAccount);
     miniGamesTotalDOMelement.innerHTML = "/ "+ Object.keys(gameAccount).length;
-    
+
   } else {
     //Show result when game is over :
     gameOver();
@@ -182,4 +186,3 @@ const gameAccount = {
   game22:"@rverona",
   game23:"@goowlart"
 };
-  
