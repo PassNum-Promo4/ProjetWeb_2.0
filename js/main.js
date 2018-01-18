@@ -17,6 +17,12 @@ function resetGameTitle(title){
   document.querySelector('#themeGame').textContent=title;
 }
 
+function setTimer(time, funcInt){
+  document.getElementById('progressBar').style.animationDuration=time+"s";
+  document.getElementById('progressBar').addEventListener("animationend", funcInt, false);
+
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   //Store DOM elements :
   contentDOMelement = document.getElementById('content');
