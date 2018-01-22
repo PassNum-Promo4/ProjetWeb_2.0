@@ -2,32 +2,40 @@
 <!--
 author: Lionel SUVELOR
 -->
-<div id="g20playground">
+<div id="g20playground" class="pt-2 m-0 container-fluid row">
 
-    <div class="jumbotron " id="g20jumbo">
-        <h1 class="display-5 text-bold text-center text-light"> JS QUIZ</h1>
-        <!-- CM and PN logos will be floating placed left and right of the h1 -->
-    </div>
+
 
     <div id="g20top"></div>
 
-    <div class="container-fluid pb-4" id='g20major'>
-        <!-- remove mt-5 if header is placed-->
-        <div>
-            <div class="row">
-                <!-- below classes can be set in JS file but as I've done some CSS modifications I let 'em here to not overload the JS part-->
-                <span id="g20gameScore" class="col-6 d-flex justify-content-center row text-center p-1 alert-info mx-auto font-weight-bold text-dark"></span>
-                <!--progressive score display-->
-                <span id="g20time" class="col-6 d-flex justify-content-center row text-center p-1 alert-info mx-auto font-weight-bold text-dark"></span>
-                <!-- timer for each question-->
-            </div><br />
-            <input id="g20StartBtn" class="btn-block btn-default col-3 col-s-3 col-xs-3 mx-auto m-2 font-weight-bold text-black active" type="button" value="START" ">
-            <!-- should I put g20startGame() at the beginnin of JS file and remove start button?-->
-            <div class="g20Q">
-                <div id="g20Q" class="col-12 d-flex justify-content-center m-3 mt-4 text-center text-light row "></div>
-                <div id="g20A1-4" class="col-12 d-flex justify-content-center m-3 text-center text-light row"></div>
+    <!--Englobe la Question et le Timer-->
+    <div class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round">
+        <!--Englobe la question-->
+        <div class="col-lg-12 col-md-12 pt-2">
+            <div class="text-center">
+                <p class="h3" id="g20Q">
+                    <!--Emplacement de la Question-->
+                </p>
             </div>
         </div>
+        <div class="p-0 m-0 progress col-md-9 m-3 round">
+            <!--Englobe le Timer-->
+
+            <div class="progress-bar bg--yellow animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
     </div>
+    <div class="container row mx-auto d-flex col-12">
+        <!--Englobe les 4 réponses-->
+
+        <!--Englobe les 4 réponses-->
+        <div class="container row mx-auto d-flex col-10 mt-5" id="g20A1-4">
+
+
+
+
+
+        </div>
+    </div>
+
     <script type="text/javascript" src="game.js"></script>
 </div>
