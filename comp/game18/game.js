@@ -80,32 +80,35 @@ var g18q10 =[
 ];
 
 var g18qtab = [g18q1,g18q2,g18q3,g18q4,g18q5,g18q6,g18q7,g18q8,g18q9,g18q10];// tableau contenant chaque tableau de question/reponse
-var g18Time=9;
-var g18uptadeTime;
-var g18result=document.querySelector('.g18result');
-g18result.style.display="none";
+var g18Time=10;
+//var g18uptadeTime;
+//var g18result=document.querySelector('.g18result');
+//g18result.style.display="none";
+
+//var el=document.getElementById('progressBar').style.animationDuration=g18Time+"s";
+
+setTimer(g18Time, g18resultQ);// call function tha set the time of the progress bar anim and the function that will be called at the end of the anim
 
 
+resetGameTitle("QUIZZ COMMANDES LINUX");// i set the title of the quiz in the H U D
 
-resetGameTitle("QUIZZ COMMANDES LINUX")
-
-function g18resultQ(){
-  document.querySelector('.progress-bar').classList.add("paused");
+function g18resultQ(){// function tha runs at the end of timer and on clicked but
+  document.querySelector('.progress-bar').classList.add("paused");//get div of progressbar and paus the anim
   //.disabled=true;
-  g18Time=g18Time+1;
-  this.classList.add("bg__false-answer");
-  document.querySelector('#g18true').classList.remove("bg__false-answer");
-  document.querySelector('#g18true').classList.add("bg__true-answer");
-  document.querySelector('#g18true').removeEventListener("click", g18score);
-  setTimeout(function(){g18randomQ()}, 2000);
+  //g18Time=g18Time+2;
+  this.classList.add("bg__false-answer");// put red bg color on clicked but
+  document.querySelector('#g18true').classList.remove("bg__false-answer");//remove red bg color if id is true
+  document.querySelector('#g18true').classList.add("bg__true-answer");// put green bg color on good answer
+  document.querySelector('#g18true').removeEventListener("click", g18score);//remove adding scor on click of good answer
+  setTimeout(function(){g18randomQ()}, 2000);// call new Q? in 2sec
 
-  var g18disabled=[];
+  var g18disabled=[];// create tab with buts
   for (var i = 0; i < 4; i++) {
     g18disabled.push(document.querySelectorAll('.g18myAnswers')[i]);
   }
-  for (var i = 0; i < g18disabled.length; i++) {// I compre the button I clicked on with the button of result page
+  for (var i = 0; i < g18disabled.length; i++) {// i remove event on click of my buts
     g18disabled[i].removeEventListener("click", g18resultQ);
-    g18disabled[i].classList.remove("btn_hover");
+    g18disabled[i].classList.remove("btn_hover");// i remove the hover css class so I can see the bg color even if the mouse is on a but
   }
 
 }
@@ -135,7 +138,7 @@ function g18score(){// add 1 to the points
   addPoints(1) ;
 }
 
-function g18Timer(){
+/*function g18Timer(){
   g18Time=g18Time-1;
   //document.getElementById('g18Time').value="temps restant : "+g18Time;
   g18uptadeTime=setTimeout(g18Timer, 1000);
@@ -146,7 +149,7 @@ function g18Timer(){
   }
 }
 
-/*function g18colorAnswer(){// if I click on good answer i change text color in result page
+function g18colorAnswer(){// if I click on good answer i change text color in result page
   var g18=[];
   for (var i = 0; i < 40; i++) {
     g18.push(document.querySelectorAll('.g18res')[i]);
@@ -159,40 +162,40 @@ function g18Timer(){
 
 }*/
 
-function g18gameOver(){
-    clearTimeout(g18uptadeTime);// stop timer
-    document.querySelector('#g18R1').innerHTML="";
+function g18gameOver(){// function called at end of game
+    //clearTimeout(g18uptadeTime);// stop timer
+    document.querySelector('#g18R1').innerHTML="";// clear the page
     document.querySelector('#g18R2').innerHTML="";
     document.querySelector('#g18R3').innerHTML="";
     document.querySelector('#g18R4').innerHTML="";
-    document.querySelector('#g18QetT').style.display="none";
+    document.querySelector('#g18QetT').style.display="none";// hide the progress bar
     document.querySelector('#g18form__submit').value="Next Game"; //change value of button
     document.querySelector('#g18form__submit').disabled=false;
-    var g18result=document.querySelector('.g18result');//show result page
+    //var g18result=document.querySelector('.g18result');//show result page
     //g18result.style.display="block";
-    document.querySelector('#g18form__submit').style.display="block";
-    document.querySelector('#g18form__submit').addEventListener("click",loadNextMiniGame);
+    document.querySelector('#g18form__submit').style.display="block";// show but
+    document.querySelector('#g18form__submit').addEventListener("click",loadNextMiniGame);// add event on click to load next quiz
 }
 
-function g18randomQ(){
-
-  document.querySelector('.progress-bar').classList.remove("paused");
-  var g18ProgressBar=document.querySelector('.progress-bar');
-  document.querySelector('.progress').innerHTML="";
-  var progress=document.querySelector('.progress');
-  progress.appendChild(g18ProgressBar);
+function g18randomQ(){// function called to generate new Q? and rep
+  //g18Time=9;
+  document.querySelector('.progress-bar').classList.remove("paused");// restart progressbar
+  var g18ProgressBar=document.querySelector('.progress-bar');// put progressbar in var
+  document.querySelector('.progress').innerHTML="";// clear progressbar
+  var progress=document.querySelector('.progress');// get div that containt progressbar
+  progress.appendChild(g18ProgressBar);// push in html progressbar
   if (g18qtab.length<1) {//test if I have questions left
     g18gameOver();
   }else {
 
-    g18Time=9;//reste time to 11 for new question
+    //reste time to 11 for new question
     //document.querySelector('.g18Rfield').innerHTML="";
-    document.querySelector('#g18R1').innerHTML="";
+    document.querySelector('#g18R1').innerHTML="";// clear page
     document.querySelector('#g18R2').innerHTML="";
     document.querySelector('#g18R3').innerHTML="";
     document.querySelector('#g18R4').innerHTML="";
-    document.querySelector('#g18form__submit').disabled=true;
-    document.querySelector('#g18form__submit').style.display="none";
+    document.querySelector('#g18form__submit').disabled=true;// only one time usefull
+    document.querySelector('#g18form__submit').style.display="none";// hide but
     var g18rdQ=Math.floor(Math.random()*g18qtab.length);//select a random nmb in tab length
     var g18Q = document.querySelector(".g18Qzone");//link a var with question zone div of html
     var g18Qcontainer=document.querySelector('#g18Qcontainer');
@@ -200,7 +203,7 @@ function g18randomQ(){
     g18Qcontainer.appendChild(g18Q);// show question on page
     g18qtab[g18rdQ].shift();//I supp the question in the random tab so I only have the answers left
     //var g18R = document.querySelector('.g18Rfield');// //link a var with answer zone div of html
-    var g18R1 = document.querySelector('#g18R1');
+    var g18R1 = document.querySelector('#g18R1');// get the div that will containt buts
     var g18R2 = document.querySelector('#g18R2');
     var g18R3 = document.querySelector('#g18R3');
     var g18R4 = document.querySelector('#g18R4');
@@ -239,5 +242,5 @@ function g18randomQ(){
   }
 }
 
-g18Timer();
-g18randomQ();
+
+g18randomQ();// call first Q? whill charging page
