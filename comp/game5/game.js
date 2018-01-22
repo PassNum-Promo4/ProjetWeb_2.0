@@ -20,12 +20,16 @@ var g5questions = new Array(
   var g5ans2 = document.querySelector('#g5ans2');
   var g5ans3 = document.querySelector('#g5ans3');
   var g5ans4 = document.querySelector('#g5ans4');
+  var g5ans1P = document.querySelector('#g5ans1P');
+  var g5ans2P = document.querySelector('#g5ans2P');
+  var g5ans3P = document.querySelector('#g5ans3P');
+  var g5ans4P = document.querySelector('#g5ans4P');
   var g5round = 0;
   var g5displayedQuestions = new Array();
   var g5allRightAns = new Array();
-  var g5timeleft = 10;
-  var g5updateTime;
-  var g5currentQuestion;
+  // var g5timeleft = 10;
+  // var g5updateTime;
+  // var g5currentQuestion;
 
 
 
@@ -53,17 +57,26 @@ function g5randomQuestion() {
 
 // Get a Random Question and Answers
 function g5getRandomQA() {
-  g5countdown();
+  // g5countdown();
   if (g5round == 10) { g5gameOver(); } 
   else {
+    document.querySelector('.progress-bar').classList.remove("paused");// restart progressbar
+    var g5ProgressBar=document.querySelector('.progress-bar');// put progressbar in var
+    document.querySelector('.progress').innerHTML="";// clear progressbar
+    var progress=document.querySelector('.progress');// get div that containt progressbar
+    progress.appendChild(g5ProgressBar);// push in html progressbar
+    g5ans1.classList.add("btn_hover");
+    g5ans2.classList.add("btn_hover");
+    g5ans3.classList.add("btn_hover");
+    g5ans4.classList.add("btn_hover");
     g5ans1.addEventListener('click', g5resultquizz);
     g5ans2.addEventListener('click', g5resultquizz);
     g5ans3.addEventListener('click', g5resultquizz);
     g5ans4.addEventListener('click', g5resultquizz);
-    g5ans1.classList.remove("bg-success", "bg-danger");
-    g5ans2.classList.remove("bg-success", "bg-danger");
-    g5ans3.classList.remove("bg-success", "bg-danger");
-    g5ans4.classList.remove("bg-success", "bg-danger");
+    g5ans1.classList.remove("bg__true-answer", "bg__false-answer");
+    g5ans2.classList.remove("bg__true-answer", "bg__false-answer");
+    g5ans3.classList.remove("bg__true-answer", "bg__false-answer");
+    g5ans4.classList.remove("bg__true-answer", "bg__false-answer");
     var g5currentQuestion = g5randomQuestion();
     g5setQuestion(g5currentQuestion);
     
@@ -89,16 +102,16 @@ function g5setQuestion(tab) {
 
   // Display answers
   var g5indexAns1 = g5random(tab);
-  g5ans1.textContent = tab.splice(g5indexAns1,1);
+  g5ans1P.textContent = tab.splice(g5indexAns1,1);
 
   var g5indexAns2 = g5random(tab);
-  g5ans2.textContent = tab.splice(g5indexAns2,1);
+  g5ans2P.textContent = tab.splice(g5indexAns2,1);
   
   var g5indexAns3 = g5random(tab);
-  g5ans3.textContent = tab.splice(g5indexAns3,1);  
+  g5ans3P.textContent = tab.splice(g5indexAns3,1);  
 
   var g5indexAns4 = g5random(tab);
-  g5ans4.textContent = tab.splice(g5indexAns4,1);
+  g5ans4P.textContent = tab.splice(g5indexAns4,1);
 
 }
 
@@ -107,66 +120,68 @@ function g5setQuestion(tab) {
 // Show question results and update score
 function g5resultquizz() {
   g5timeleft = 10;
-  clearTimeout(g5updateTime);
+  // clearTimeout(g5updateTime);
   g5displayRightAnswer();
   if (g5allRightAns.indexOf(this.textContent) > -1) { addPoints(1); } 
-  else { this.classList.add("bg-danger"); }
+  else { this.classList.add("bg__false-answer"); }
 
 }
 
 
 
 function g5displayRightAnswer() {
+  document.querySelector('.progress-bar').classList.add("paused");//get div of progressbar and paus the anim
   g5ans1.removeEventListener('click', g5resultquizz);
   g5ans2.removeEventListener('click', g5resultquizz);
   g5ans3.removeEventListener('click', g5resultquizz);
   g5ans4.removeEventListener('click', g5resultquizz);
+  g5ans1.classList.remove("btn_hover");
+  g5ans2.classList.remove("btn_hover");
+  g5ans3.classList.remove("btn_hover");
+  g5ans4.classList.remove("btn_hover");
   if (g5allRightAns.indexOf(g5ans1.textContent) > -1) {
-    g5ans1.classList.add("bg-success");
+    g5ans1.classList.add("bg__true-answer");
   } else if (g5allRightAns.indexOf(g5ans2.textContent) > -1) {
-    g5ans2.classList.add("bg-success");
+    g5ans2.classList.add("bg__true-answer");
   } else if (g5allRightAns.indexOf(g5ans3.textContent) > -1) {
-    g5ans3.classList.add("bg-success");
+    g5ans3.classList.add("bg__true-answer");
   } else if (g5allRightAns.indexOf(g5ans4.textContent) > -1) {
-    g5ans4.classList.add("bg-success");
+    g5ans4.classList.add("bg__true-answer");
   }
-  setTimeout(g5getRandomQA,1500);
+  setTimeout(g5getRandomQA,2000);
 
 }
 
 
 
 // Set the countdown
-  function g5countdown() {
-      g5updateTime = setInterval(g5timer, 1000);
+  // function g5countdown() {
+  //     g5updateTime = setInterval(g5timer, 1000);
      
-      function g5timer() {
-        if (g5timeleft < 1) {
-          g5displayRightAnswer();
-          g5timeleft = 9;
-          clearTimeout(g5updateTime);
-          return;
-        } else {
-        g5timeleft --;        
-      }
+  //     function g5timer() {
+  //       if (g5timeleft < 1) {
+  //         g5displayRightAnswer();
+  //         g5timeleft = 9;
+  //         clearTimeout(g5updateTime);
+  //         return;
+  //       } else {
+  //       g5timeleft --;        
+  //     }
 
-      }
+  //     }
 
-      return g5updateTime, g5timeleft;
-    }
+  //     return g5updateTime, g5timeleft;
+  //   }
 
 
     
 // Ends the game
 function g5gameOver() {
-  clearTimeout(g5updateTime);
+  // clearTimeout(g5updateTime);
   loadNextMiniGame();
 }
 
 
 g5getRandomQA();
+setTimer(10, g5displayRightAnswer);
 resetGameTitle("Javascript");
-
-
-
-
