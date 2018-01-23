@@ -5,14 +5,49 @@
 
 
  
-  <div id="quizz">
+ <div id="quizz" class="pt-2 m-0 container-fluid row"><!--Container Principal-->
 
-  <legend>Quizz</legend>
-<input type="button" name="" value="temps:10" id="timer">
-  <div id="question"></div>
+   <div class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round"><!--Englobe la Question et le Timer-->
+     <div class="col-lg-12 col-md-12 pt-2"><!--Englobe la question-->
+       <div id="emplQ" class="text-center">
+         <p id="question" class="h3"><!--Emplacement de la Question--></p>
+       </div>
+     </div>
+     <div class="p-0 m-0 progress col-md-9 m-3 round"><!--Englobe le Timer-->
+        <div id="progressBar" class="progress-bar bg--yellow animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="timer"></div><!--Emplacement du Timer-->
+     </div>
+   </div>
 
-  <div id="reponse"></div>
-  </div>
-  <script type="text/javascript" src="game.js"></script>
+   <div class="container row mx-auto d-flex col-12"><!--Englobe les 4 réponses-->
+
+     <div class="container row col-10 justify-content-center mx-auto pt-5"><!--Englobe les 2 réponses du haut-->
+       <div id="reponse1" class="col-lg-5 col-md-12 pb-3"><!--Englobe le 1ère réponse-->
+     
+
+       </div>
+       <div id="reponse2" class="col-lg-5 col-md-12 pb-3"><!--Englobe la 2ème réponse-->
+
+         
+       </div>
+     </div>
+
+     <div class="container row col-10 justify-content-center mx-auto pt-5" ><!--Englobe les 2 réponses du bas-->
+
+       <div id="reponse3" class="col-lg-5 col-md-12 pb-3"><!--Englobe la 3ème réponse-->
+
+         
+       </div>
+       <div id="reponse4"  class="col-lg-5 col-md-12 pb-3"><!--Englobe la 4ème réponse-->
+
+       	
+
+        
+       </div>
+     </div>
+
+   </div>
+
+ </div>
+<script type="text/javascript" src="game.js"></script>
 
 
