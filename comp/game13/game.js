@@ -73,7 +73,6 @@ var g13q10 = [
     "Diagonale"
 ];
 
-
 // Table with all questions
 var g13_AllQ = [g13q1, g13q2, g13q3, g13q4, g13q5, g13q6, g13q7, g13q8, g13q9, g13q10];
 
@@ -87,11 +86,7 @@ var g13counter = 10;
 
 var g13ansrand;
 
-var g13timer;
-
 var g13currentTabQ = [];
-
-var g13intervalId = null;
 
 var g13A1 = document.querySelector("#answer1");
 var g13A2 = document.querySelector("#answer2");
@@ -105,26 +100,8 @@ g13startgame();
 
 function g13startgame() {
     g13getRandomQA();
-    g13intervalId = setInterval(g13reset, 1000);
 }
 
-//reset timer
-function g13reset() {
-    //document.getElementById("g13chrono").innerHTML = g13counter + " secondes";
-    g13counter--;
-    g13resetTimer();
-}
-
-// end of the game
-/*
-function g13endGame() {
-    //clearInterval(g13intervalId);
-    document.querySelector(".display").innerHTML = "";
-    g13divAnswer.innerHTML = "GAME OVER";
-    g13divQuestion.innerHTML = "";
-
-}
-*/
 // function that stops the timer in the end of the game and load the next game
 function g13resetTimer() {
     if (g13counter < 0) {
@@ -178,8 +155,6 @@ function g13getRandomQA() {
     g13A4.parentElement.classList.remove("bg-success");
 
     if (g13round == 10) {
-        //g13endGame();
-        clearTimeout(g13intervalId);
         setTimeout(loadNextMiniGame, 2000);
 
     } else {
@@ -188,14 +163,8 @@ function g13getRandomQA() {
         g13ElemQ.textContent = g13currentTabQ[0]; // contains the text of the question
         g13divQuestion.innerHTML = ''; // empties the div having the id = question
         g13divQuestion.appendChild(g13ElemQ); // adds the text of the question to the div having id = question
-        //g13divAnswer.innerHTML = ''; 
-        g13ansrand = g13RA(g13currentTabQ);
 
-        // for (var i = 1; i < 5; i++) { // show the answers
-        //var g13ElemA = document.createElement('input');
-        //g13ElemA.value = g13ansrand[i];
-        //g13ElemA.type = 'button';
-        //g13ElemA.style = 'width:1000px'; // needed to show the entire answer
+        g13ansrand = g13RA(g13currentTabQ);
 
         g13A1.innerHTML = g13ansrand[1];
         g13A2.innerHTML = g13ansrand[2];
@@ -206,7 +175,6 @@ function g13getRandomQA() {
         g13A2.parentElement.addEventListener('click', g13result);
         g13A3.parentElement.addEventListener('click', g13result);
         g13A4.parentElement.addEventListener('click', g13result);
-        //g13divAnswer.appendChild(g13ElemA);
 
 
         g13round++;
@@ -221,18 +189,14 @@ function g13RandQ(tab) {
     var g13Questions = "";
     var g13q = Math.floor(Math.random() * tab.length);
     g13Questions = tab[g13q];
-    g13_AllQ.splice(g13q, 1);
+    tab.splice(g13q, 1);
 
     return g13Questions;
 }
 
 // increment the score, call the next question on click
 function g13result() {
-    var g13indexFound = g13ansrand.indexOf(g13currentTabQ[1]);
-        var g13id = "answer" + g13indexFound;
-        var g13p = document.getElementById(g13id);
-        g13p.parentElement.classList.add("bg-success");
-/*
+    var g13indexFound = g13ansrand.indexOf(g13currentTabQ[1]); // index of the right answer in the randomic table
     switch (g13indexFound) {
         case 1:
             g13A1.parentElement.classList.add("bg-success");
@@ -247,11 +211,11 @@ function g13result() {
             g13A4.parentElement.classList.add("bg-success");
             break;
     }
-*/
+
     if (this.children[0].innerHTML == g13currentTabQ[1]) {
         g13score = g13score + 1;
         g13counter = 10;
-        //addpoints(1);
+        addpoints(1);
     } else {
         // afficher l'erreur
         this.classList.add("bg-danger");
@@ -259,9 +223,8 @@ function g13result() {
         g13counter = 10;
     }
 
-    //document.getElementById('score').innerHTML = "Score : " + g13score + " " + "/ 10 questions correctes";
     // go to next question
     setTimeout(g13getRandomQA, 1500);
 
-    //g13reset();
+  
 }
