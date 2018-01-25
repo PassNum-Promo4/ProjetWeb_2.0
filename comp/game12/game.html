@@ -4,7 +4,40 @@
 -->
 
 <div>
-  <div id ="g12container" class="container-fluid p-5">
+  <div class="pt-2 m-0 container-fluid row"><!--Container Principal-->
+
+    <div class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round"><!--Englobe la Question et le Timer-->
+      <div class="col-lg-12 col-md-12 pt-2"><!--Englobe la question-->
+        <div class="text-center">
+          <p id="g12Q" class="h3"><!--Emplacement de la Question--></p>
+        </div>
+      </div>
+      <div class="p-0 m-0 progress col-md-9 m-3 round"><!--Englobe le Timer-->
+         <div id="progressBar" class="progress-bar bg--yellow animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div><!--Emplacement du Timer-->
+      </div>
+    </div>
+
+    <div class="container row mx-auto d-flex col-12"><!--Englobe les 4 réponses-->
+
+      <div class="container row col-10 justify-content-center mx-auto pt-5"><!--Englobe les 2 réponses du haut-->
+        <div id="g12A1" class="col-lg-5 col-md-12 pb-3"><!--Englobe le 1ère réponse-->
+
+        </div>
+        <div id="g12A2" class="col-lg-5 col-md-12 pb-3"><!--Englobe la 2ème réponse-->
+
+        </div>
+      </div>
+
+      <div class="container row col-10 justify-content-center mx-auto pt-md-3 pt-xl-4"><!--Englobe les 2 réponses du bas-->
+        <div id="g12A3" class="col-lg-5 col-md-12 pb-3"><!--Englobe la 3ème réponse-->
+
+        </div>
+        <div id="g12A4" class="col-lg-5 col-md-12 pb-3"><!--Englobe la 4ème réponse-->
+
+        </div>
+      </div>
+
+    </div>
 
   </div>
 </div>
