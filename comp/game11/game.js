@@ -76,10 +76,10 @@ function g11getRandomQA() {
   g11rep[g11alCh4].id = "badRep3";
 
   g11resetClass();
-  document.querySelector("#goodRep").innerHTML = g11alTab[1];
-  document.querySelector("#badRep").innerHTML = g11alTab[2];
-  document.querySelector("#badRep2").innerHTML = g11alTab[3];
-  document.querySelector("#badRep3").innerHTML = g11alTab[4];
+  document.querySelector("#goodRep > p").innerHTML = g11alTab[1];
+  document.querySelector("#badRep > p").innerHTML = g11alTab[2];
+  document.querySelector("#badRep2 > p").innerHTML = g11alTab[3];
+  document.querySelector("#badRep3 > p").innerHTML = g11alTab[4];
 
 
   document.querySelector('#goodRep').addEventListener("click", g11getRep);
@@ -141,6 +141,7 @@ function g11getRep() {
     setTimeout(loadNextMiniGame, 1000);
 
   }
+  setTimeout(g11addHover, 1500);
 
 }
 
@@ -161,6 +162,13 @@ function g11resetHover() {
   document.querySelector("#badRep").classList.remove("btn_hover");
   document.querySelector("#badRep2").classList.remove("btn_hover");
   document.querySelector("#badRep3").classList.remove("btn_hover");
+}
+
+function g11addHover() {
+  document.querySelector("#goodRep").classList.add("btn_hover");
+  document.querySelector("#badRep").classList.add("btn_hover");
+  document.querySelector("#badRep2").classList.add("btn_hover");
+  document.querySelector("#badRep3").classList.add("btn_hover");
 }
 
 function g11resetTimer() {
