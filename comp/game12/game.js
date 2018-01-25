@@ -26,8 +26,9 @@ var g12A3button;
 var g12A3paragraph;
 var g12A4button;
 var g12A4paragraph;
-setTimer(9,g12falseAnswer);
 
+setTimer(9,g12falseAnswer);
+resetGameTitle('JavaScript');
 
 g12startGame();
 
