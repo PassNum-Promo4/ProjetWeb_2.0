@@ -2,7 +2,7 @@
   Author : JANUEL ETIENNE
 */
 
-resetGameTitle('JavaScript');
+resetGameTitle("JavaScript");
 setTimer(9,g12falseAnswer);
 
 var g12QnA1 = new Array('Q1 : Quelle fonction permet d\'obtenir l\'indice d\'un élement donné dans un tableau ?','array.indexOf','array.indexBy','array.indexFor','array.indexWhere');
