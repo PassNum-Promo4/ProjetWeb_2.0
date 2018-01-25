@@ -65,7 +65,7 @@ function g12createQnA() {
   g12A1button = document.createElement('button');
   g12A1button.type = 'button';
   g12A1button.id = 'g12AC1';
-  g12A1button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round');
+  g12A1button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round','btn_hover');
 
   g12A1paragraph = document.createElement('p');
   g12A1paragraph.textContent = g12QnA[1];
@@ -77,7 +77,7 @@ function g12createQnA() {
   g12A2button = document.createElement('button');
   g12A2button.type = 'button';
   g12A2button.id = 'g12AC2';
-  g12A2button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round');
+  g12A2button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round','btn_hover');
 
   g12A2paragraph = document.createElement('p');
   g12A2paragraph.textContent = g12QnA[2];
@@ -89,7 +89,7 @@ function g12createQnA() {
   g12A3button = document.createElement('button');
   g12A3button.type = 'button';
   g12A3button.id = 'g12AC3';
-  g12A3button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round');
+  g12A3button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round','btn_hover');
 
   g12A3paragraph = document.createElement('p');
   g12A3paragraph.textContent = g12QnA[3];
@@ -101,7 +101,7 @@ function g12createQnA() {
   g12A4button = document.createElement('button');
   g12A4button.type = 'button';
   g12A4button.id = 'g12AC4';
-  g12A4button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round');
+  g12A4button.classList.add('bg-color__body', 'p-4', 'btn', 'btn-lg', 'col-12', 'mt-2', 'text-dark', 'round','btn_hover');
 
   g12A4paragraph = document.createElement('p');
   g12A4paragraph.textContent = g12QnA[4];
@@ -163,7 +163,9 @@ function g12revealQnA() {
   document.querySelector('#g12AC2').removeEventListener('click', g12falseAnswer);
   document.querySelector('#g12AC3').removeEventListener('click', g12falseAnswer);
   document.querySelector('#g12AC4').removeEventListener('click', g12falseAnswer);
-  //Revealing the soluce
+  
+  document.querySelector('button').classList.remove('btn_hover');
+
   document.querySelector('#g12AC1').classList.add('bg__true-answer');
   document.querySelector('#g12AC2').classList.add('bg__false-answer');
   document.querySelector('#g12AC3').classList.add('bg__false-answer');
