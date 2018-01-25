@@ -1,18 +1,34 @@
 <!--
   Author : bilel AMRAOUI
 -->
-
-<div class="w-100 h-200 container">
-  <div class="row">
-    <div class="col row d-flex justify-content-between">
-      <span class="col-8  p-3" id="g2QTimer">Temps Manche</span>
-      <div id="g2scoreFinal" class="col-4 p-3 justify-content-end row"></div>
-      <span id="g2Result" class="m-1 col-12 d-flex justify-content-center text-center">Manche : </span>
+<div id="g2container" class="pt-2 m-0 container-fluid row">
+  <input type="button" id="g2form__submit" value="Demarer" onclick="g2randomQ(); return false"></input>
+  <div id="g2QetT" class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round">
+    <div class="col-lg-12 col-md-12 pt-2">
+      <div id="g2Qcontainer" class="text-center">
+        <p class="h3 g2Qzone"></p>
+      </div>
     </div>
-    <div class="d-flex justify-content-center text-center row">
-      <div id="g2Q" class="col-lg-12 col-md-12 col-sm-12 row d-flex justify-content-center"></div>
-      <div id="g2A1-4" class="col-lg-12 col-md-12 col-sm-12 row d-flex justify-content-center"></div>
+    <div class="p-0 m-0 progress col-md-9 m-3 round">
+      <div id="progressBar" class="progress-bar  animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
     </div>
-    <div id="g2nextGame" class="col-lg-12 col-md-12 col-sm-12 row d-flex justify-content-center p-3 m-3"></div>
   </div>
+  <div class="container row mx-auto d-flex col-12">
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g2Rfield">
+      <div id="g2R1" class="col-lg-5 col-md-12 pb-3">
+      </div>
+      <div id="g2R2" class="col-lg-5 col-md-12 pb-3">
+      </div>
+    </div>
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g2Rfield">
+      <div id="g2R3" class="col-lg-5 col-md-12 pb-3">
+      </div>
+      <div id="g2R4" class="col-lg-5 col-md-12 pb-3">
+      </div>
+    </div>
+  </div>
+  <div class="g2result">
+  </div>
+  <script type="text/javascript" src="game.js"></script>
 </div>
+
