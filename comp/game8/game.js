@@ -3,6 +3,7 @@
 */
 
 var g8Container = document.querySelector('#g8container');
+g8Container.classList.add("d-flex","flex-column");
 var g8q1 = [
   "Comment crée une base de donées ?",  //for every array[0] is the qusetion
   "CREATE DATABASE ma_base",  //for every array[1] is the good answer
@@ -11,65 +12,68 @@ var g8q1 = [
   "INSERT DATABASE ma_base"];
 var g8q2 = [
   "Comment crée une table ?",
-  "CREATE TABLE nom_de_la_table (colonne1 type_donnees, colonne2 type_donnees)",
-  "CREATE TABLE nom_de_la_table",
+  "CREATE TABLE ... (colonne1 type_donnees, colonne2 type_donnees)",
+  "CREATE TABLE ...",
   "CREATE TABLE",
-  "LOAD TABLE nom_de_la_table (colonne1 type_donnees, colonne2 type_donnees)"];
+  "LOAD TABLE ... (colonne1 type_donnees, colonne2 type_donnees)"];
 var g8q3 = [
   "Comment ajouter une colonne dans une table ?",
-  "ALTER TABLE nom_table ADD nom_colonne type_donnees",
-  "ALTER TABLE nom_table INSERT nom_colonne type_donnees",
-  "ENTER TABLE nom_table ADD nom_colonne type_donnees",
-  "ALTER TABLE nom_table CREATE nom_colonne type_donnees"];
+  "ADD",
+  "INSERT",
+  "ENTER",
+  "CREATE"];
 var g8q4 = [
   "Comment lire les données d'une table ?",
-  "SELECT nom_du_champ FROM nom_du_tableau",
-  "LOAD nom_du_champ FROM nom_du_tableau",
-  "LOAD nom_du_champ IN nom_du_tableau",
-  "SELECT nom_du_champ IN nom_du_tableau"];
+  "SELECT ... FROM ...",
+  "LOAD ... FROM ...",
+  "LOAD ... IN ...",
+  "SELECT ... IN ..."];
 var g8q5 = [
-  "Comment lire les données d'une table avec une seul condition ?",
-  "SELECT nom_colonnes FROM nom_table WHERE condition",
-  "SELECT nom_colonnes FROM nom_table",
-  "SELECT nom_colonnes IN nom_table WHERE condition",
-  "LOAD nom_colonnes FROM nom_table WHERE condition"];
+  "Quel mot clé utiliser pour lire les données d'une table avec une seul condition ?",
+  "WHERE con",
+  "WHEN con",
+  "WHEN con1 AND con2",
+  "WHERE con1 OR con2"];
 var g8q6 = [
-  "Comment lire les données d'une table avec plusieurs condition ?",
-  "SELECT nom_colonnes FROM nom_table WHERE condition1 AND condition2",
-  "LOAD nom_colonnes FROM nom_table WHERE condition1 AND condition2",
-  "LOAD nom_colonnes IN nom_table WHERE condition1 OR condition2",
-  "ALTER nom_colonnes IN nom_table WHERE condition1 OR condition2"];
+  "Quel mot clé utiliser pour lire les données d'une table avec plusieurs condition ?",
+  "WHERE con1 AND con2",
+  "WHEN con1 AND con2",
+  "WHEN con1 OR con2",
+  "WHERE con1 AND OR con2"];
 var g8q7 = [
-  "Comment unir les résultats de 2 tableaux sans afficher les doublons ?",
-  "SELECT * FROM table1 UNION SELECT * FROM table2",
-  "SELECT table1 UNION SELECT table2",
-  "SELECT * FROM table1 AND SELECT * FROM table2",
-  "SELECT * FROM table1 UNION ALL SELECT * FROM table2"];
+  "Quel mot clé utiliser pour unir les résultats de 2 tableaux sans afficher les doublons ?",
+  "UNION",
+  "MERGE",
+  "U *",
+  "MERGE *"];
 var g8q8 = [
-  "Comment unir les résultats de 2 tableaux même avec les doublons ?",
-  "SELECT * FROM table1 UNION ALL SELECT * FROM table2",
-  "SELECT TABLE table1 UNION ALL SELECT TABLE table2",
-  "SELECT * FROM table1 UNION SELECT * FROM table2",
-  "SELECT ALL FROM table1 UNION SELECT ALL FROM table2"];
+  "Quel mot clé utiliser pour unir les résultats de 2 tableaux même avec les doublons ?",
+  "UNION ALL",
+  "UNION *",
+  "SELECT *",
+  "UNION"];
 var g8q9 = [
-  "Comment insérer des donéesss dans une table ?",
-  "INSERT INTO table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "ADD INTO table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "INSERT IN table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')",
-  "ADD IN table (nom_colonne_1, nom_colonne_2) VALUES ('valeur 1', 'valeur 2')"];
+  "Quel mot clé utiliser pour insérer des donéesss dans une table ?",
+  "INSERT INTO",
+  "ADD INTO",
+  "INSERT IN",
+  "ADD IN"];
 var g8q10 = [
-  "Comment obtenir l'intersection des résultats de 2 tables ?",
-  "SELECT * FROM table1 INTERSECT SELECT * FROM table2",
-  "LOAD * FROM table1 INTERSECT LOAD * FROM table2",
-  "ALTER ALL FROM table1 INTERSECT ALTER ALL FROM table2",
-  "SELECT ALL FROM table1 INTERSECT SELECT ALL FROM table2"];
+  "Quel mot clé utiliser pour obtenir l'intersection des résultats de 2 tables ?",
+  "INTERSECT",
+  "INTER",
+  "INTERSECT ALL",
+  "INTER ALL"];
 var g8QA = [g8q1, g8q2, g8q3, g8q4, g8q5, g8q6, g8q7, g8q8, g8q9, g8q10]; // All questions and answers array holder..
 var g8QARandIndex;
 var g8ResultGoodOpinions = ["Very Good !","You're the BOSS !","We're Proud Of You ! ^_^"];
 var g8ResultMiddleOpinions = ["Not Bad !","You Can Do Better !","Good !"];
 var g8ResultLowOpinions = ["Try Better Next Time !","Not To Good","That's All ?"];
-var g8Questions = document.createElement("h2");
-g8Questions.classList.add("p3-4","pt-1");
+var g8Questions = document.createElement("div");
+g8Questions.id = "g8QuestionContainer";
+g8Questions.style.fontSize = "2rem";
+g8Questions.style.backgroundColor = "#ccccff";
+g8Questions.classList.add("pl-2","pr-2","pt-1","d-flex","justify-content-between","align-items-center");
 var g8Answers = [];
 var g8AnswersContainer = document.createElement("div");
 var g8Points = 0;
@@ -78,13 +82,59 @@ var g8TimerCount = 11;
 var g8Timer = 11;
 var g8QuestStart = false;
 var g8TimerContainer = document.createElement("div");
+g8TimerContainer.id = "g8TimerContainer";
+g8TimerContainer.classList.add("d-flex","justify-content-center","align-items-center");
+var g8TimerCountContainer = document.createElement("div");
+g8TimerCountContainer.id = "g8TimerCountContainer";
+g8TimerCountContainer.classList.add("position-relative","pt-3","pb-3","pl-1","pr-1");
+var g8TimerCountText = document.createElement("div");
+g8TimerCountText.id = "g8TimerCountText";
+g8TimerCountText.classList.add("pr-2");
+g8TimerCountText.style.fontSize = "1rem";
+g8TimerCountText.style.fontWeight = "bold";
+var g8TimerCountNr = document.createElement("div");
+g8TimerCountNr.id = "g8TimerCountNr";
+g8TimerCountNr.classList.add("position-relative");
+g8TimerCountNr.style.zIndex = "1";
+g8TimerCountNr.style.fontSize = "1.8rem";
+var g8TimerCountPBContainer = document.createElement("div");
+g8TimerCountPBContainer.id = "g8TimerCountPBContainer";
+g8TimerCountPBContainer.classList.add("w-100","h-100","position-absolute","border");
+g8TimerCountPBContainer.style.top = "0";
+g8TimerCountPBContainer.style.left = "0";
+var g8TimerCountPB = document.createElement("table");
+g8TimerCountPB.id = "g8TimerCountPB";
+g8TimerCountPB.classList.add("w-100","position-absolute");
+g8TimerCountPB.style.top = "0";
+g8TimerCountPB.style.left = "0";
+
 var g8Interval;
 var g8TimerUpdate;
+var g8progressBar;
+var g8scoreContainer;
+var g8progressBarContainer;
+var g8tempNr = -1;
 
 function g8Tm() {
   if (g8QuestStart) {
     g8Timer = g8Timer - 1;
-    g8TimerContainer.innerHTML = "Your Time : " + g8Timer.toString() + "s";
+    g8tempNr++;
+    g8TimerCountText.innerHTML = "Your Time :";
+    g8TimerCountNr.innerHTML = g8Timer.toString();
+    g8TimerCountPB.classList.remove("bg-success","bg-warning","bg-danger");
+    g8TimerCountPBContainer.classList.remove("border-success","border-warning","border-danger");
+    if (g8Timer > 5) {
+      g8TimerCountPB.classList.add("bg-success");
+      g8TimerCountPBContainer.classList.add("border-success");
+    } else if (g8Timer > 2) {
+      g8TimerCountPB.classList.add("bg-warning");
+      g8TimerCountPBContainer.classList.add("border-warning");
+    } else {
+      g8TimerCountPB.classList.add("bg-danger");
+      g8TimerCountPBContainer.classList.add("border-danger");
+    }
+    g8TimerCountPB.style.top = g8tempNr * 10+ "%";
+    g8TimerCountPB.style.height = g8Timer * 10+ "%";
     g8TimerUpdate = setTimeout(function () {
       g8Tm();
     }, 1000);
@@ -95,8 +145,11 @@ function g8RandOp(tab) {
   var i = Math.floor(Math.random() * tab.length);
   return tab[i];
 }
-
-g8Container.appendChild(g8TimerContainer);
+g8TimerContainer.appendChild(g8TimerCountText);
+g8TimerCountPBContainer.appendChild(g8TimerCountPB);
+g8TimerCountContainer.appendChild(g8TimerCountNr);
+g8TimerCountContainer.appendChild(g8TimerCountPBContainer);
+g8TimerContainer.appendChild(g8TimerCountContainer);
 g8Quest();
 g8Tm();
 function g8Quest() {
@@ -106,7 +159,7 @@ function g8Quest() {
     g8RemoveAllChildren(g8AnswersContainer);
     g8RemoveAllChildren(g8TimerContainer);
     var g8Result = document.createElement("div");
-    g8Result.classList.add("d-inline-block","border","p-2");
+    g8Result.classList.add("d-inline-block","border","m-auto","p-3");
     var g8ResultOpinion = document.createElement("h1");
     g8ResultOpinion.classList.add("text-center");
     var g8ResultScore = document.createElement("p");
@@ -141,6 +194,7 @@ function g8Quest() {
     g8Interval = setTimeout(function () {
       g8QA.splice(g8QARandIndex, 1);
       g8Timer = 11;
+      g8tempNr = -1;
       g8Quest();
     }, g8TimerCount * 1000);
   }
@@ -160,6 +214,7 @@ function g8AnswersFunc(tab) {
       g8Answers.id = "goodAnswer";
       g8Answers.classList.add("btn","btn-light","border","border-primary","m-2");
       g8Answers.innerHTML = tab[1];
+      g8Questions.appendChild(g8TimerContainer);
     } else {
       g8Answers = document.createElement("button");
       g8Answers.classList.add("badAnswers");
@@ -190,6 +245,12 @@ function g8AnswersFunc(tab) {
   }
 
   g8Container.appendChild(g8AnswersContainer);
+  g8progressBar = document.querySelector('#g8progressBar');
+  g8progressBar.classList.add("h-100","position-absolute");
+  g8progressBarContainer = document.querySelector('#g8progressBarContainer');
+  g8scoreContainer = document.querySelector('#g8scoreContainer');
+  g8scoreContainer.style.backgroundColor = "#ccccff";
+  g8scoreContainer.classList.add("position-relative");
 
   function g8GoodAnsFunc() {
     clearTimeout(g8Interval);
@@ -203,14 +264,30 @@ function g8AnswersFunc(tab) {
     document.getElementsByClassName("badAnswers")[1].disabled = true;
     document.getElementsByClassName("badAnswers")[2].disabled = true;
     setTimeout(function () {
+      g8progressBarContainer.classList.add("border","bg-dark","border-danger","w-100","h-100","position-absolute");
       clearTimeout(g8Interval);
       clearTimeout(g8TimerUpdate);
       g8Timer = 11;
+      g8tempNr = -1;
       g8QA.splice(g8QARandIndex, 1);
       g8PointsCounter++;
       g8Quest();
       g8Tm();
       addPoints(g8Points + 1);
+      g8progressBar.width = g8PointsCounter * 10+ "%";
+      if (g8PointsCounter > 5) {
+        g8progressBar.classList.add("bg-success");
+        g8progressBar.classList.remove("bg-warning");
+        g8progressBarContainer.classList.remove("border-danger","border-warning");
+        g8progressBarContainer.classList.add("border-success");
+      } else if (g8PointsCounter > 2) {
+        g8progressBar.classList.add("bg-warning");
+        g8progressBar.classList.remove("bg-danger");
+        g8progressBarContainer.classList.remove("border-danger");
+        g8progressBarContainer.classList.add("border-warning");
+      } else {
+        g8progressBar.classList.add("bg-danger");
+      }
     }, 2000);
   }
 
@@ -229,12 +306,12 @@ function g8AnswersFunc(tab) {
       clearTimeout(g8Interval);
       clearTimeout(g8TimerUpdate);
       g8Timer = 11;
+      g8tempNr = -1;
       g8QA.splice(g8QARandIndex, 1);
       g8Quest();
       g8Tm();
     }, 2000);
   }
-
   var g8GoodAnswerBtn = document.querySelector("#goodAnswer");
   g8GoodAnswerBtn.addEventListener('click', g8GoodAnsFunc);
   var n = 0;

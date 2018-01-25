@@ -1,7 +1,40 @@
 <!--
-  Author :
+Author : Florian Sanchez
 -->
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
-</div>
+ <div class="pt-2 m-0 container-fluid row"> <!--Container Principal-->
+
+   <div class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round"><!--Englobe la Question et le Timer-->
+     <div class="col-lg-12 col-md-12 pt-2"> <!--Englobe la question-->
+       <div id="g19question" class="text-center">
+       </div>
+     </div>
+     <div class="p-0 m-0 progress col-md-9 m-3 round">  <!--Englobe le Timer-->
+        <div id ="progressBar" class="progress-bar bg--yellow animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div><!--Emplacement du Timer-->
+     </div>
+   </div>
+
+   <div class="container row mx-auto d-flex col-12">  <!--Englobe les 4 réponses-->
+
+     <div class="container row col-10 justify-content-center mx-auto pt-5"> <!--Englobe les 2 réponses du haut-->
+       <div id="g19reponses1" class="col-lg-5 col-md-12 pb-3">  <!--Englobe le 1ère réponse-->
+         <!--Réponse 1-->
+       </div>
+       <div id="g19reponses2" class="col-lg-5 col-md-12 pb-3">  <!--Englobe la 2ème réponse-->
+         <!--Réponse 2-->
+       </div>
+     </div>
+
+     <div class="container row col-10 justify-content-center mx-auto pt-5"><!--Englobe les 2 réponses du bas-->
+       <div id="g19reponses3" class="col-lg-5 col-md-12 pb-3">  <!--Englobe la 3ème réponse-->
+         <!--Réponse 3-->
+       </div>
+       <div id="g19reponses4" class="col-lg-5 col-md-12 pb-3">  <!--Englobe la 4ème réponse-->
+         <!--Réponse 4-->
+       </div>
+     </div>
+
+   </div>
+   <script type="text/javascript" src="game.js"></script>
+ </div>
+

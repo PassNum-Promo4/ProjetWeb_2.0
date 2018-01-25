@@ -1,7 +1,52 @@
+
 <!--
-  Author :
+Author : Lionel SUVELOR
 -->
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
+<div id="g20container" class="pt-2 m-0 container-fluid row">
+     <input type="button" id="g20form__submit" value="Start Game" onclick="g20randomQ(); return false"/>
+  <div id="g20QetT" class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round">
+
+    <div class="col-lg-12 col-md-12 pt-2">
+      <div id="g20Qcontainer" class="text-center">
+        <p class="h3 g20Qzone"></p>
+      </div>
+    </div>
+
+    <div class="p-0 m-0 progress col-md-9 m-3 round">
+      <div id="progressBar" class="progress-bar  animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div>
+
+  </div>
+
+  <div class="container row mx-auto d-flex col-12">
+
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g20Rfield">
+        <div id="g20R1" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+        <div  id="g20R2" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+    </div>
+
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g20Rfield">
+        <div id="g20R3" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+        <div  id="g20R4" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="g20result">
+
+  </div>
+
+  <script type="text/javascript" src="game.js"></script>
+
 </div>
+

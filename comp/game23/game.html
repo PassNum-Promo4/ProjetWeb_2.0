@@ -1,7 +1,20 @@
 <!--
-  Author :
+  Author : Alex Vieira
 -->
 
-<div>
-  <p>Ce mini-jeu n'a pas encore été crée</p>
+
+<div class="p-5">
+  <div>
+    <div>
+      <div id="g23question"></div>
+      <div id="g23options"> </div>
+    </div>
+    <span id="g23GameTimer"></span><br>
+    <span id="g23QnATimer"></span>
+    <input id="btn" class="btn btn-primary col-12" type="button" value="Start" onClick="g23startGame();"> <br>
+    <span id="g23Result"> Score : </span><br>
+    <button class="btn btn-dark  m-1 p-3" id="btnNext" value="Start" onClick="loadNextMiniGame();" type="button">Next Game</button>
+  </div>
 </div>
+<!-- lien JS -->
+<script type="text/javascript" src="game.js"></script>

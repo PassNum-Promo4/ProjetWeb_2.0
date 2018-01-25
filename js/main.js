@@ -10,6 +10,19 @@ let miniGameCounter;
 let miniGameCounterDOMelement;
 let miniGamesURLArray;
 
+let miniGamesGitHubAccountDOMelement;
+let miniGamesTotalDOMelement;
+
+function resetGameTitle(title){
+  document.querySelector('#themeGame').textContent=title;
+}
+
+function setTimer(time, funcInt){
+  document.getElementById('progressBar').style.animationDuration=time+"s";
+  document.getElementById('progressBar').addEventListener("animationend", funcInt, false);
+
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   //Store DOM elements :
   contentDOMelement = document.getElementById('content');
@@ -26,7 +39,8 @@ function loadNextMiniGame(){
     //Get a random mini-game URL :
     let max = Math.floor(miniGamesURLArray.length);
     let rand = Math.floor(Math.random() * max);
-    let source = miniGamesURLArray[rand];
+    let gameName = miniGamesURLArray[rand];
+    let source = "comp/"+ gameName;
     //Remove this mini-game :
     miniGamesURLArray.splice(rand, 1);
     //Load HTML :
@@ -37,9 +51,19 @@ function loadNextMiniGame(){
       script.src = source + "/game.js";
       document.getElementsByTagName('head')[0].appendChild(script);
     });
+
+    //Load Author Name
+    let gitHubAccount = "https://github.com/" + gameAccount[gameName].split("@")[1];
+
+
+
     //Update HUD :
     miniGameCounter ++;
     miniGameCounterDOMelement.innerHTML = miniGameCounter.toString();
+    miniGamesGitHubAccountDOMelement.innerHTML = gameAccount[gameName];
+    miniGamesGitHubAccountDOMelement.setAttribute("href",gitHubAccount);
+    miniGamesTotalDOMelement.innerHTML = "/ "+ Object.keys(gameAccount).length;
+
   } else {
     //Show result when game is over :
     gameOver();
@@ -68,6 +92,8 @@ function startNewGame(){
     //Store DOM elements :
     currentScoreDOMelement = document.getElementById('currentScore');
     miniGameCounterDOMelement = document.getElementById('miniGameCounter');
+    miniGamesGitHubAccountDOMelement = document.getElementById('miniGameGitHubAccount');
+    miniGamesTotalDOMelement = document.getElementById('miniGamesTotal');
     //Update score display :
     currentScoreDOMelement.innerHTML = score.toString();
     //Load randomly a minigame :
@@ -91,29 +117,29 @@ function initializeNewGame(){
     }, false);
   });
   //Initialize games array :
-  miniGamesURLArray = new Array("comp/game1",
-  "comp/game2",
-  "comp/game3",
-  "comp/game4",
-  "comp/game5",
-  "comp/game6",
-  "comp/game7",
-  "comp/game8",
-  "comp/game9",
-  "comp/game10",
-  "comp/game11",
-  "comp/game12",
-  "comp/game13",
-  "comp/game14",
-  "comp/game15",
-  "comp/game16",
-  "comp/game17",
-  "comp/game18",
-  "comp/game19",
-  "comp/game20",
-  "comp/game21",
-  "comp/game22",
-  "comp/game23");
+  miniGamesURLArray = new Array("game1",
+  "game2",
+  "game3",
+  "game4",
+  "game5",
+  "game6",
+  "game7",
+  "game8",
+  "game9",
+  "game10",
+  "game11",
+  "game12",
+  "game13",
+  //"game14",
+  "game15",
+  "game16",
+  "game17",
+  "game18",
+  "game19",
+  "game20",
+  "game21",
+  "game22",
+  "game23");
 
   miniGamesCount = miniGamesURLArray.length;
 }
@@ -138,3 +164,31 @@ function loadComp(source, target, callback) {
   };
   xhttp.send();
 }
+
+
+//Correspondance Game / github account :
+const gameAccount = {
+  game1:"@mohamedammi",
+  game2:"@bilelamraoui",
+  game3:"@LazareBoukenouche",
+  game4:"@MickaelCaparos",
+  game5:"@JulieCervera",
+  game6:"@maariinec",
+  game7:"@faycal13",
+  game8:"@AniDedej",
+  game9:"@boukhemis11",
+  game10:"@gavariniKevin",
+  game11:"@Mkrtich13",
+  game12:"@eJanuel",
+  game13:"@amcossu",
+  //game14
+  game15:"Mohameed55",
+  game16:"@o-thomas",
+  game17:"@kirperov",
+  game18:"@thibaultrousset",
+  game19:"@FlorianSanchez",
+  game20:"@LS-777",
+  game21:"@SymaaG",
+  game22:"@rverona",
+  game23:"@goowlart"
+};

@@ -1,28 +1,38 @@
-<!--
-  Author : Julie Cervera
--->
-<div>
+<!--   Author : Julie Cervera -->
 
-  <div class="p-5" style="width:100%;">
+ <div class="pt-2 m-0 container-fluid row"><!--Container Principal-->
 
-    <div id="quest" class="col-12 text-center">
-    </div>
-    <div class="row">
-      <div id="ans1" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans2" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans3" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-      <div id="ans4" class="text-center col-12 border border-dark rounded m-2 p-4">
-      </div>
-    </div>
-    <div class="card">
-      <span id="score" class="card-body text-center"></span>
-    </div>
-    
-  </div>
+   <div class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round"><!--Englobe la Question et le Timer-->
+     <div class="col-lg-12 col-md-12 pt-2"><!--Englobe la question-->
+       <div class="text-center">
+         <p id="g5quest" class="h3"><!--Emplacement de la Question--></p>
+       </div>
+     </div>
+     <div class="p-0 m-0 progress col-md-9 m-3 round"><!--Englobe le Timer-->
+        <div id="progressBar" class="progress-bar bg--yellow animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div><!--Emplacement du Timer-->
+     </div>
+   </div>
 
-  <script type="text/javascript" src="game.js"></script>
+   <div class="container row mx-auto d-flex col-12"><!--Englobe les 4 réponses-->
 
-</div>
+     <div class="container row col-10 justify-content-center mx-auto pt-5"><!--Englobe les 2 réponses du haut-->
+       <div class="col-lg-5 col-md-12 pb-3"><!--Englobe le 1ère réponse-->
+         <button id="g5ans1" type="button" class="btn_hover bg-color__body p-4 btn btn-lg col-12 mt-2 text-dark round"><p id="g5ans1P"></p></button><!--Réponse 1-->
+       </div>
+       <div class="col-lg-5 col-md-12 pb-3"><!--Englobe la 2ème réponse-->
+         <button id="g5ans2" type="button" class="btn_hover bg-color__body p-4 btn btn-lg col-12 mt-2 text-dark round"><p  id="g5ans2P"></p></button><!--Réponse 2-->
+       </div>
+     </div>
+
+     <div class="container row col-10 justify-content-center mx-auto pt-5"><!--Englobe les 2 réponses du bas-->
+       <div class="col-lg-5 col-md-12 pb-3"><!--Englobe la 3ème réponse-->
+         <button id="g5ans3" type="button" id="g5ans3" class="btn_hover bg-color__body p-4 btn btn-lg col-12 mt-2 text-dark round"><p id="g5ans3P"></p></button><!--Réponse 3-->
+       </div>
+       <div class="col-lg-5 col-md-12 pb-3"><!--Englobe la 4ème réponse-->
+         <button id="g5ans4" type="button" id="g5ans4" class="btn_hover bg-color__body p-4 btn btn-lg col-12 mt-2 text-dark round"><p id="g5ans4P"></p></button><!--Réponse 4-->
+       </div>
+     </div>
+
+   </div>
+   <script type="text/javascript" src="game.js"></script>
+ </div>

@@ -1,34 +1,50 @@
-<div>
-  <!--Author : Thibault ROUSSET-->
 
-  <div id="g18container">
-    <form class="g18form" action="index.html" method="post">
-      <fieldset>
-        <legend>QUIZZ COMMANDES LINUX</legend>
-        <input id="g18form__submit" type="button" value="Demarrer" onclick="g18randomQ(); g18Timer(); return false">
+<!--Author : Thibault ROUSSET-->
 
-        <div class="g18TimerContainer">
-          <input id="g18Time" type="button"  value="temps : 10">
-        </div>
-        <div class="g18scoreContainer">
-          <input id="g18score" type="button"  value="score : 0">
-        </div>
+<div id="g18container" class="pt-2 m-0 container-fluid row">
+  <input type="button" id="g18form__submit" value="Demarer" onclick="g18randomQ(); return false"></input>
+  <div id="g18QetT" class="pt-1 pb-1 container-fluid bg-color__body col-10 row justify-content-center mx-auto round">
 
-      </fieldset>
-    </form>
-    <div class="g18Qzone">
-
+    <div class="col-lg-12 col-md-12 pt-2">
+      <div id="g18Qcontainer" class="text-center">
+        <p class="h3 g18Qzone"></p>
+      </div>
     </div>
-    <div class="g18Rfield">
 
+    <div class="p-0 m-0 progress col-md-9 m-3 round">
+      <div id="progressBar" class="progress-bar  animation--slide-left " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
     </div>
-    <div class="g18result">
 
-    </div>
   </div>
+
+  <div class="container row mx-auto d-flex col-12">
+
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g18Rfield">
+        <div id="g18R1" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+        <div  id="g18R2" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+    </div>
+
+    <div class="container row col-10 justify-content-center mx-auto pt-5 g18Rfield">
+        <div id="g18R3" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+        <div  id="g18R4" class="col-lg-5 col-md-12 pb-3">
+
+        </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="g18result">
+
+  </div>
+
   <script type="text/javascript" src="game.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 </div>

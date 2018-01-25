@@ -3,150 +3,228 @@
 */
 
 var g13q1 = [
-    "À quoi sert le CSS ?",
-    "Styliser une page web",
-    "Garder des données dans une base de données",
-    "Afficher un site sur Internet",
-    "Donner de l’interactivité à une page web"
+    "À quoi sert le CSS ?", // Index [0] - Question
+    "Styliser une page web", // Index [1] - Correct answer
+    "Garder des données", // Index[2] - Wrong answer
+    "Afficher un site sur Internet", // Index[3] - Wrong answer
+    "Rendre interactive une page web" // Index[4] - Wrong answer
 ];
 var g13q2 = [
-    "Quel code permet d’appliquer le même style aux balises <h1> et <p> ?",
+    "Quel code permet d’appliquer le même style aux balises <h1> et <p> ?",
     "h1, p {}",
     "h1 (p){}",
     "h1.p {}",
     "h1{p}"
 ];
 var g13q3 = [
-    "Quelle est la différence entre les attributs class et id ?",
-    "L’id peut être utilisé qu’un seule fois dans le code, au contraire de class",
-    "On peut utiliser class en toutes les balises et id juste dans la balise <p>",
-    "On peut utiliser id en toutes les balises et class juste dans la balise <p>",
-    "Class peut être utilisé qu’un seule fois dans le code, au contraire de l’id"
-];
-var g13q4 = [
-    "En CSS, comment sélectionnez-vous l’image suivante par son identifiant ? <img id = superimage src = image.png >",
+    "En CSS, comment sélectionnez-vous l’image suivante par son identifiant ? <img id = superimage src = image.png>",
     "#superimage {}",
     "superimage {}",
     "img { }",
     ".superimage {}"
 ];
-var g13q5 = [
+var g13q4 = [
     "Quel est l'avantage du modèle Flexbox par rapport au modèle block ?",
-    "La possibilité de créer facilement des pages responsives",
-    "Juste avec Flexbox c’est possible de styliser un fichier HTML",
-    "En utilisant Flexbox c’est possible d’ajouter un formulaire à une page web",
-    "Sans Flexbox une page web ne peut pas afficher des animations"
+    "Son caractère responsive",
+    "Changer le code HTML",
+    "Pouvoir ajouter un formulaire",
+    "Afficher des animations"
 ];
-var g13q6 = [
-    "Avec la syntaxe A + B en CSS on sélectionne :",
-    "Toutes les élément B qui suit immédiatement un élément A",
-    "Toutes les éléments A et B",
-    "Toutes les éléments entre A et B",
-    "Toutes les éléments A"
-];
-var g13q7 = [
-    "Quelle propriété peut être utilisé pour changer le type police, en CSS ?",
+var g13q5 = [
+    "Quelle propriété peut être utilisé pour changer le type police?",
     "font-family",
     "font",
     "font-color",
     "font-syze"
 ];
-var g13q8 = [
-    "Qu’est ce que la pseudo-classe :hover permet de changer ?",
-    "L’aspect d’un élément lorsque les visiteurs d’un site le survolent avec le curseur",
-    "L’aspect d’un lien lors du clic",
-    "L’aspect d’un élément pendant son téléchargement",
-    "Le style d’un lien non visité"
+var g13q6 = [
+    "Qu’est ce que la pseudo-classe :hover permet de changer ?",
+    "L’aspect d’un élément",
+    "Le téléchargement d’un élément",
+    "La balise &lt;body&gt;",
+    "La balise &lt;p&gt;"
 ];
-var g13q9 = [
-    "Quelle est la fonction du pseudo-element :before ?",
+var g13q7 = [
+    "Quelle est la fonction du pseudo-element :before ?",
     "Insérer de contenu avant un élément",
     "Insérer de contenu après un élément",
     "Cacher de contenu avant un élément",
     "Cacher de contenu après un élément"
 ];
-var g13q10 = [
-    "La propriété visibility, qui permet de cacher un élément de l’utilisateur, peut avoir quelles valeurs ?",
+var g13q8 = [
+    "La propriété visibility peut avoir quelles valeurs ?",
     "Visible, hidden et collapse",
     "Visible, hidden et sticky",
     "Visible, invisible et hidden",
     "Hidden, fixed, sticky"
 ];
-var g13q11 = [
-    "La propriété padding spécifie l’espace…",
-    "Entre le bord d’un élément et son contenu",
-    "Entre les bordes de deux éléments",
-    "Entre les bordes gauche et droite d’un élément",
-    "Entre les balises <body> et <head>"
+var g13q9 = [
+    "La propriété padding spécifie l’espace entre…",
+    "Le bord d’un élément et son contenu",
+    "Les bordes de deux éléments",
+    "Deux balises &lt;p&gt;",
+    "Les balises &lt;body&gt; et &lt;head&gt;"
 ];
-var g13q12 = [
-    "Dans un flex container, quelle est l’orientation des éléments par défaut ?",
+var g13q10 = [
+    "Dans un flex container, quelle est l’orientation des éléments par défaut ?",
     "Horizontale",
     "Perpendiculaire",
     "Verticale",
     "Diagonale"
 ];
 
-var g13_AllQ = [g13q1, g13q2, g13q3, g13q4, g13q5, g13q6, g13q7, g13q8, g13q9, g13q10, g13q11, g13q12];
-
-var g13index = 0;
+// Table with all questions
+var g13_AllQ = [g13q1, g13q2, g13q3, g13q4, g13q5, g13q6, g13q7, g13q8, g13q9, g13q10];
 
 var g13score = 0;
 
-/*
+var g13index = 0;
 
-function g13_Random_Answer(tab) {
-    var g13_Answer = Math.floor((5 - 1) * Math.random()) + 1;
-    var g13_Answer_Result = tab[g13_Answer];
+var g13round = 0;
 
-    return g13_Answer_Result;
+var g13counter = 10;
+
+var g13ansrand;
+
+var g13currentTabQ = [];
+
+var g13A1 = document.querySelector("#answer1");
+var g13A2 = document.querySelector("#answer2");
+var g13A3 = document.querySelector("#answer3");
+var g13A4 = document.querySelector("#answer4");
+
+var g13divQuestion = document.querySelector("#question");
+
+// function to start the game
+g13startgame();
+
+function g13startgame() {
+    g13getRandomQA();
 }
 
-
-function g13_Random_Question(tab) {
-    var g13q = Math.floor(Math.random() * g13_AllQ.length);
-    var g13qresult = tab[g13q];
-
-    return g13qresult;
+// function that stops the timer in the end of the game and load the next game
+function g13resetTimer() {
+    if (g13counter < 0) {
+        g13counter = 10;
+        setTimeout(g13getRandomQA, 1500);
+    }
 }
-*/
 
-function g13getRandomQA(index) {
-    var g13currentTabQ = g13_AllQ[index]; // contains the current question
-    var g13ElemQ = document.createElement('h2'); // create h2 containing the question
-    g13ElemQ.textContent = g13currentTabQ[0]; // contains the text of the question
-    var g13divQuestion = document.querySelector("#question"); // gets the div having the id = question
-    g13divQuestion.innerHTML = ''; // empties the div having the id = question
-    g13divQuestion.appendChild(g13ElemQ); // adds the text of the question to the div having id = question
-    var g13divAnswer = document.querySelector("#answer"); // gets the div having the id = answer
-    g13divAnswer.innerHTML = ''; // empties the div having the id = answer
+// function with a ordered table as parameter, returning a random table - used to have random answers
+function g13RA(tab) {
+    var g13randTable = [];
+    g13randTable.push(tab[0]); // add inside the random table the element of the original table
+    var g13tirage = [];
+    for (var i = 0; i < 4; i++) {
+        var g13valUnique = g13sendUniqueValue(g13tirage);
+        g13tirage.push(g13valUnique);
+        g13randTable.push(tab[g13valUnique]);
+    }
+    return g13randTable;
+}
 
-    for (var i = 1; i < 5; i++) { // show the answers
-        var g13ElemA = document.createElement('p');
-        g13ElemA.textContent = g13currentTabQ[i];
-        g13divAnswer.appendChild(g13ElemA);
+//send a value thats is not already present in the
+function g13sendUniqueValue(tab) {
+    var g13randnum = Math.floor(Math.random() * 4) + 1;
+    while (g13exists(g13randnum, tab)) {
+        g13randnum = Math.floor(Math.random() * 4) + 1;
+    }
+    return g13randnum;
+}
+
+//verify if there is one value in the table of values
+function g13exists(valeur, tab) {
+    for (i = 0; i < tab.length; i++) {
+        if (tab[i] == valeur) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//random question and answers without repeating it
+function g13getRandomQA() {
+    //output reinit
+    g13A1.parentElement.classList.remove("bg-danger");
+    g13A1.parentElement.classList.remove("bg-success");
+    g13A2.parentElement.classList.remove("bg-danger");
+    g13A2.parentElement.classList.remove("bg-success");
+    g13A3.parentElement.classList.remove("bg-danger");
+    g13A3.parentElement.classList.remove("bg-success");
+    g13A4.parentElement.classList.remove("bg-danger");
+    g13A4.parentElement.classList.remove("bg-success");
+
+    if (g13round == 10) {
+        setTimeout(loadNextMiniGame, 2000);
+
+    } else {
+        g13currentTabQ = g13RandQ(g13_AllQ); // contains the current table with question and answers
+        var g13ElemQ = document.createElement('h3');
+        g13ElemQ.textContent = g13currentTabQ[0]; // contains the text of the question
+        g13divQuestion.innerHTML = ''; // empties the div having the id = question
+        g13divQuestion.appendChild(g13ElemQ); // adds the text of the question to the div having id = question
+
+        g13ansrand = g13RA(g13currentTabQ);
+
+        g13A1.innerHTML = g13ansrand[1];
+        g13A2.innerHTML = g13ansrand[2];
+        g13A3.innerHTML = g13ansrand[3];
+        g13A4.innerHTML = g13ansrand[4];
+
+        g13A1.parentElement.addEventListener('click', g13result);
+        g13A2.parentElement.addEventListener('click', g13result);
+        g13A3.parentElement.addEventListener('click', g13result);
+        g13A4.parentElement.addEventListener('click', g13result);
+
+
+        g13round++;
 
     }
-
+    g13resetTimer();
+    return g13round;
 }
 
-function addPoints(points) { // add score
-    g13score = g13score + 1;
-    points = g13score;
-    document.getElementById('g13score').value = " Score : " + g13score;
+// creates a random table without repetition - used to have random questions
+function g13RandQ(tab) {
+    var g13Questions = "";
+    var g13q = Math.floor(Math.random() * tab.length);
+    g13Questions = tab[g13q];
+    tab.splice(g13q, 1);
 
-    return points;
+    return g13Questions;
 }
 
+// increment the score, call the next question on click
+function g13result() {
+    var g13indexFound = g13ansrand.indexOf(g13currentTabQ[1]); // index of the right answer in the randomic table
+    switch (g13indexFound) {
+        case 1:
+            g13A1.parentElement.classList.add("bg-success");
+            break;
+        case 2:
+            g13A2.parentElement.classList.add("bg-success");
+            break;
+        case 3:
+            g13A3.parentElement.classList.add("bg-success");
+            break;
+        case 4:
+            g13A4.parentElement.classList.add("bg-success");
+            break;
+    }
 
-function g13BeginQ() { //for start the game
-    g13index = 0;
-    g13getRandomQA(g13index);
+    if (this.children[0].innerHTML == g13currentTabQ[1]) {
+        g13score = g13score + 1;
+        g13counter = 10;
+        addpoints(1);
+    } else {
+        // afficher l'erreur
+        this.classList.add("bg-danger");
+        g13score = g13score;
+        g13counter = 10;
+    }
 
-}
+    // go to next question
+    setTimeout(g13getRandomQA, 1500);
 
-function g13NextQ() { //for continuing the game
-    g13index = g13index + 1;
-    g13getRandomQA(g13index);
-
+  
 }

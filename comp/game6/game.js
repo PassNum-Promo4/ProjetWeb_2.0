@@ -15,7 +15,7 @@ var g6tableau = [];
 var g6time=11;
 var g6updateTime;
 function g6score(){
-	addPoint(1);//fait appel a la fonction addpoint() qui calcul le score
+	addPoints(1);//fait appel a la fonction addpoint() qui calcul le score
 }
 
 function g6color(){
@@ -27,7 +27,7 @@ function g6color(){
 }
 
 setTimer(g6time, g6color);
-/*function g6timer(){
+function g6timer(){
 	g6time =g6time-1;
 	document.querySelector('#timer').value="temps restant:"+g6time;
 	g6updateTime=setTimeout(function(){g6timer()},1000);
@@ -36,7 +36,7 @@ setTimer(g6time, g6color);
 		console.log(g6time);
 		g6randomQuestion();
 	}
-}*/
+}
 
 function gameOver(){
 	clearTimeout(g6updateTime);//arrete le timer
@@ -106,3 +106,6 @@ document.querySelector('.progress-bar').classList.remove("paused");//get div of 
 //resetGameTitle("base de donnée");
 
 g6randomQuestion();
+loadNextMiniGame();
+// bug sur le addpoint .
+
