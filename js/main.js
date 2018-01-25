@@ -129,7 +129,7 @@ function initializeNewGame(){
   "game10",
   "game11",
   "game12",
-  "game13",
+  //"game13",
   //"game14",
   "game15",
   "game16",
