@@ -1,6 +1,10 @@
 /*
   Author : JANUEL ETIENNE
 */
+
+resetGameTitle('JavaScript');
+setTimer(9,g12falseAnswer);
+
 var g12QnA1 = new Array('Q1 : Quelle fonction permet d\'obtenir l\'indice d\'un élement donné dans un tableau ?','array.indexOf','array.indexBy','array.indexFor','array.indexWhere');
 var g12QnA2 = new Array('Q2 : Comment créer un tableau vide ?','new Array(\'\')','new Tab(\'\')','new Array[]','new Array[\'\']');
 var g12QnA3 = new Array('Q3 : Quelle est la syntaxe pour écrire un commentaire sur plusieurs lignes ?','/* ... */','*/ ... /*','// ... //','<!-- ... -->');
@@ -26,9 +30,6 @@ var g12A3button;
 var g12A3paragraph;
 var g12A4button;
 var g12A4paragraph;
-
-setTimer(9,g12falseAnswer);
-resetGameTitle('JavaScript');
 
 g12startGame();
 
