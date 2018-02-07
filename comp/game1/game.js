@@ -2,9 +2,8 @@
   Author : AMMIMOUSSA
 */
 
-var i =0;
-var j =0;
-var s =0;
+var g1i =0;
+var g1s =0;
 var g1bnrsp;
 var g1Timer = document.querySelector("#time");
 var g1Score = document.querySelector("#score");
@@ -87,8 +86,8 @@ function g1gameOver(){
 
 
 function g1getQuestion(){
-    i++;
-    if (i > 10){
+    g1i++;
+    if (g1i > 10){
         clearTimeout(g1t);
         g1gameOver();
         
@@ -129,8 +128,8 @@ function g1getQuestion(){
 function g1setScore(){
     if (g1BnRps.indexOf(this.textContent) > -1){
    
-        s++;
-        g1Score.textContent = 'your score is '+s ;
+        g1s++;
+        g1Score.textContent = 'your score is '+g1s ;
         addPoints(1);
     }
     g1goodAnswer();
